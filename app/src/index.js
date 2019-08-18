@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const App = () => (
-  <div>bcredi</div>
+  <div>bcredi.</div>
 )
 
 var mountNode = document.getElementById("app");

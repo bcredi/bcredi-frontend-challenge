@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
-    "build:dev": "npm run clean && webpack -d --config ./configs/webpack.config.js --watch",
+    "build:dev": "npm run clean && webpack-dev-server -d --config ./configs/webpack.config.js --watch",
     "build:prod": "npm run clean && webpack -p --config ./configs/webpack.config.js"
   },
   "devDependencies": {
@@ -19,7 +19,9 @@
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.18.2",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.6"
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
     "react": "^16.9.0",
