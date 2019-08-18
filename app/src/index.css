@@ -1,0 +1,26 @@
+/**
+ * Global styles
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+ * Theming
+ */
+
+:root {
+  /* Colors */
+  --background: #ffffff;
+  --border: #e6e6e6;
+  --default-text: #8f8f8f;
+  --error: #ff5863;
+  --heading: #333333;
+  --hero: #ffffff;
+  --link: #4c8afe;
+  --placeholder: #cccccc;
+  --success: #2ecc71;
+}
