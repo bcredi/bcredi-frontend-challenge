@@ -6,6 +6,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
+// Postcss
+const postcssCustomProperties = require("postcss-custom-properties");
+
 const config = {
   entry: "./src/index.js",
   output: {
@@ -35,7 +38,13 @@ const config = {
               importLoaders: 1
             }
           },
-          "postcss-loader"
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: () => [postcssCustomProperties(/* pluginOptions */)]
+            }
+          }
         ]
       },
       {
