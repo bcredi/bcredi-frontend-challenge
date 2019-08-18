@@ -24,6 +24,34 @@ const config = {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1
+            }
+          },
+          "postcss-loader"
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: "file-loader"
+      },
+      {
+        test: /\.png$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              mimetype: "image/png"
+            }
+          }
+        ]
       }
     ]
   },
