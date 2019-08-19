@@ -2,20 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Components
-import Box from './components/Box'
-import Button from './components/Button'
-import Input from './components/Input'
-import Title from './components/Title'
-import Toggle from './components/Toggle'
-import Text from './components/Text'
+import Layout from './components/Layout'
+
+// Sections
+import Hero from "./components/Hero"
+import SignUp from "./components/SignUp"
 
 // Styles
 import "./index.css";
 
 // Component
 const App = () => (
-  <div>
-  </div>
+  <Layout>
+    <Hero />
+    <SignUp />
+  </Layout>
 )
 
 var mountNode = document.getElementById("app");

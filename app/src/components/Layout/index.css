@@ -1,0 +1,8 @@
+/**
+ * Layout
+ */
+
+.layout {
+  display: flex;
+  position: relative;
+}

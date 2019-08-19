@@ -1,0 +1,15 @@
+/**
+ * Hero
+ */
+
+.hero {
+  background-position: center;
+  background-size: cover;
+  width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    display: none;
+  }
+}
