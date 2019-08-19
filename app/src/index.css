@@ -2,14 +2,6 @@
  * Global styles
  */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-  font-size: 10px;
-}
-
 /**
  * Theming
  */
@@ -22,6 +14,7 @@
   --error: #ff5863;
   --heading: #333333;
   --hero: #ffffff;
+  --input: #333333;
   --link: #4c8afe;
   --placeholder: #cccccc;
   --success: #2ecc71;
@@ -29,4 +22,14 @@
   /* Sizing */
   --radius: 3px;
   --gutter: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: var(--default-text);
+  font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco",
+    "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-size: 10px;
 }

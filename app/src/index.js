@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 // Components
 import Button from './components/Button'
+import Input from './components/Input'
 
 // Styles
 import "./index.css";
@@ -11,6 +12,7 @@ import "./index.css";
 const App = () => (
   <div>
     <Button icon="locked">Cadastrar</Button>
+    <Input label="Nome" placeholder="Escreva seu nome completo" name="name" error="O campo email é obrigatório" />
   </div>
 )
 
