@@ -15,12 +15,6 @@ import "./index.css";
 // Component
 const App = () => (
   <div>
-    <Button icon="locked">Cadastrar</Button>
-    <Input label="Nome" placeholder="Escreva seu nome completo" name="name" error="O campo email é obrigatório" />
-    <Title>Criar meu cadastro</Title>
-    <Text>Para acompanhar sua contratação de crédito você utilizará seu e-mail e CPF.</Text>
-    <Box>Box component</Box>
-    <Toggle active={false} />
   </div>
 )
 
