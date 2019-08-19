@@ -55,13 +55,14 @@ const config = {
         use: "file-loader"
       },
       {
-        test: /\.png$/,
+        test: /\.(png|jpg)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: "file-loader",
             options: {
-              mimetype: "image/png"
-            }
+              name: '[path][name].[ext]',
+              outputPath: 'images',
+            },
           }
         ]
       }
