@@ -5,7 +5,7 @@ import "./index.css";
 
 // Component
 const Box = ({ children }) => {
-  return <h1 className="box">{children}</h1>;
+  return <div className="box">{children}</div>;
 };
 
 export default Box;

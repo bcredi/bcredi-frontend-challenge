@@ -1,0 +1,19 @@
+/**
+ * Toggle
+ */
+
+.toggle {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  text-align: center;
+  width: 24px;
+}
+
+.toggle--active {
+  background: var(--link);
+  border-color: var(--link);
+}
