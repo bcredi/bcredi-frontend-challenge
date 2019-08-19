@@ -1,0 +1,11 @@
+/**
+ * Box
+ */
+
+.box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1.2rem;
+  margin: calc(var(--gutter) * 2) 0;
+  padding: calc(var(--gutter) * 2);
+}
