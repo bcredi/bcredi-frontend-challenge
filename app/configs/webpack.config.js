@@ -42,7 +42,10 @@ const config = {
             loader: "postcss-loader",
             options: {
               ident: "postcss",
-              plugins: () => [postcssCustomProperties(/* pluginOptions */)]
+              plugins: () => [postcssCustomProperties({
+                importFrom: './src/index.css',
+                preserve: false,
+              })]
             }
           }
         ]

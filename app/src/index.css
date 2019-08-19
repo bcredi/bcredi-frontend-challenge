@@ -6,6 +6,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-size: 10px;
 }
 
 /**
@@ -23,4 +25,8 @@
   --link: #4c8afe;
   --placeholder: #cccccc;
   --success: #2ecc71;
+
+  /* Sizing */
+  --radius: 3px;
+  --gutter: 8px;
 }
