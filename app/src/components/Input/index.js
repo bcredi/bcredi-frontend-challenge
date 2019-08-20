@@ -12,7 +12,18 @@ import Icon from "../Icon";
 import "./index.css";
 
 // Component
-const Input = ({ error, label, name, placeholder, icon, mask }) => {
+const Input = ({
+  error,
+  errorMessage,
+  icon,
+  label,
+  mask,
+  name,
+  onChange,
+  placeholder,
+  required = false,
+  type
+}) => {
   const inputControl = classNames([
     "input__control",
     error ? "input__control--error" : null
@@ -26,13 +37,14 @@ const Input = ({ error, label, name, placeholder, icon, mask }) => {
 
   function handleInput(event) {
     const { value } = event.target;
-    let masked = "";
+    let input = value;
 
     if (mask) {
-      masked = masks[mask](value);
+      input = masks[mask](value);
     }
 
-    setValue(masked);
+    setValue(input);
+    onChange(event.target.name, input);
   }
 
   return (
@@ -44,19 +56,22 @@ const Input = ({ error, label, name, placeholder, icon, mask }) => {
         <input
           className="input__control__content"
           id={name}
+          name={name}
           placeholder={placeholder}
           onChange={handleInput}
           value={value}
+          type={type}
+          required={required}
         />
         {icon && <Icon className="input__control__icon" icon={icon} />}
       </div>
-      <small className={inputError}>{error}</small>
+      {error && <small className={inputError}>{errorMessage}</small>}
     </div>
   );
 };
 
 Input.propTypes = {
-  error: propTypes.string,
+  error: propTypes.bool,
   label: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
   mask: propTypes.oneOf(["document", "date"]),

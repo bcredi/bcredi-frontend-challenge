@@ -8,10 +8,11 @@ import classNames from "../../utils/classnames";
 import "./index.css";
 
 // Component
-const Text = ({ center, children, marginless, small }) => {
+const Text = ({ center, children, error, marginless, small }) => {
   const className = classNames([
     "text",
     center ? "text-center" : null,
+    error ? "text-error" : null,
     small ? "text-small" : null,
     marginless ? "no-margin" : null
   ]);

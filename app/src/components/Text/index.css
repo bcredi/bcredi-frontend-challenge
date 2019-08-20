@@ -12,6 +12,10 @@
   text-align: center;
 }
 
+.text-error {
+  color: var(--error);
+}
+
 .text-small {
   font-size: 1.1rem;
   line-height: 1.6;
