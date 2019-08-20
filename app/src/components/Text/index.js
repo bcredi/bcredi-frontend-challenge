@@ -1,12 +1,17 @@
 import React from "react";
 import propTypes from "prop-types";
 
+// Utils
+import classNames from "../../utils/classnames";
+
 // Styles
 import "./index.css";
 
 // Component
-const Text = ({ children }) => {
-  return <p className="text">{ children }</p>;
+const Text = ({ center, children }) => {
+  const className = classNames(["text", center ? "text-center" : null]);
+
+  return <p className={className}>{children}</p>;
 };
 
 Text.propTypes = {
