@@ -20,6 +20,13 @@ import translate from "../../locales";
 import "./index.css";
 
 // Fake api
+const ORIGINAL_STATE = {
+  email: "",
+  document: "",
+  birthdate: "",
+  password: "",
+  terms: ""
+};
 const ENDPOINT = "https://jsonplaceholder.typicode.com/users";
 
 // Component
@@ -28,13 +35,7 @@ const SignUp = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [form, setForm] = useState({
-    email: "",
-    document: "",
-    birthdate: "",
-    password: "",
-    terms: ""
-  });
+  const [form, setForm] = useState(ORIGINAL_STATE);
 
   function handleChange(field, value) {
     setForm({ ...form, [field]: value });
@@ -56,6 +57,7 @@ const SignUp = ({ children }) => {
     })
       .then(response => response.json())
       .then(data => {
+        setForm(ORIGINAL_STATE);
         setToast(true);
         setLoading(false);
         setTimeout(() => {
