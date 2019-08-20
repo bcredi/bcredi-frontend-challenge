@@ -10,9 +10,12 @@
   cursor: pointer;
   font-size: 1.6em;
   font-weight: bold;
+  flex: 1;
+  margin-top: calc(var(--gutter) * 2);
   padding: calc(var(--gutter) * 2) calc(var(--gutter) * 4);
 }
 
 .button__icon {
-  margin-right: var(--gutter);
+  margin-right: calc(var(--gutter) * 4);
+  margin-left: calc(var(--negative-gutter) * 4);
 }
