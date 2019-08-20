@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import propTypes from "prop-types";
 
 // Utils
 import classNames from "../../utils/classnames";
+import masks from "../../utils/masks";
 
 // Components
 import Icon from "../Icon";
@@ -11,7 +12,7 @@ import Icon from "../Icon";
 import "./index.css";
 
 // Component
-const Input = ({ error, label, name, placeholder, icon }) => {
+const Input = ({ error, label, name, placeholder, icon, mask }) => {
   const inputControl = classNames([
     "input__control",
     error ? "input__control--error" : null
@@ -20,6 +21,19 @@ const Input = ({ error, label, name, placeholder, icon }) => {
     "input__message",
     error ? "input__message--error" : null
   ]);
+
+  const [value, setValue] = useState("");
+
+  function handleInput(event) {
+    const { value } = event.target;
+    let masked = "";
+
+    if (mask) {
+      masked = masks[mask](value);
+    }
+
+    setValue(masked);
+  }
 
   return (
     <div className="input">
@@ -31,6 +45,8 @@ const Input = ({ error, label, name, placeholder, icon }) => {
           className="input__control__content"
           id={name}
           placeholder={placeholder}
+          onChange={handleInput}
+          value={value}
         />
         {icon && <Icon className="input__control__icon" icon={icon} />}
       </div>
@@ -43,6 +59,7 @@ Input.propTypes = {
   error: propTypes.string,
   label: propTypes.string.isRequired,
   name: propTypes.string.isRequired,
+  mask: propTypes.oneOf(["document", "date"]),
   placeholder: propTypes.string
 };
 

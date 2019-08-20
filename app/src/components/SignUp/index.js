@@ -39,11 +39,13 @@ const SignUp = ({ children }) => {
             label={translate("signUp.document")}
             placeholder={translate("signUp.documentPlaceholder")}
             name="document"
+            mask="document"
           />
           <Input
             label={translate("signUp.birthDate")}
             placeholder={translate("signUp.birthDatePlaceholder")}
             name="birthdate"
+            mask="date"
           />
         </Row>
         <Row>
