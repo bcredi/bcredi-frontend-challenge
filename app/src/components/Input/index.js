@@ -16,6 +16,7 @@ const Input = ({
   error,
   errorMessage,
   icon,
+  iconClick,
   label,
   mask,
   name,
@@ -63,7 +64,13 @@ const Input = ({
           type={type}
           required={required}
         />
-        {icon && <Icon className="input__control__icon" icon={icon} />}
+        {icon && (
+          <Icon
+            className="input__control__icon"
+            icon={icon}
+            iconClick={iconClick}
+          />
+        )}
       </div>
       {error && <small className={inputError}>{errorMessage}</small>}
     </div>
@@ -72,10 +79,16 @@ const Input = ({
 
 Input.propTypes = {
   error: propTypes.bool,
+  icon: propTypes.string,
+  iconClick: propTypes.func,
   label: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
   mask: propTypes.oneOf(["document", "date"]),
+  name: propTypes.string.isRequired,
   placeholder: propTypes.string
+};
+
+Input.defaultProps = {
+  iconClick: () => {}
 };
 
 export default Input;
