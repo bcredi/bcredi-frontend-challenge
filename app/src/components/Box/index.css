@@ -9,3 +9,7 @@
   margin: calc(var(--gutter) * 2) 0;
   padding: calc(var(--gutter) * 2);
 }
+
+.box--error {
+  border-color: var(--error);
+}
