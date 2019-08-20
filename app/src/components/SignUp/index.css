@@ -3,5 +3,41 @@
  */
 
 .signup {
+  display: flex;
   flex: 1;
+  flex-direction: column;
+}
+
+.signup__header {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  height: 64px;
+  padding: 0 calc(var(--gutter) * 4);
+}
+
+.signup__content {
+  margin: 0 auto;
+  max-width: 320px;
+  min-height: calc(100% - 64px - 66px);
+  width: 100%;
+}
+
+.signup__footer {
+  border-top: 1px solid var(--border);
+  margin: 0 auto;
+  max-width: 320px;
+  width: 100%;
+}
+
+.signup__footer .text,
+.signup__footer .link {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 768px) {
+  .signup__header {
+    border-bottom: 1px solid var(--border);
+  }
 }
