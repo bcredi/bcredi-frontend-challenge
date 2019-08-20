@@ -4,11 +4,19 @@
 
 .text {
   font-size: 1.6rem;
-  font-weight: bold;
   line-height: 2.4rem;
   margin: calc(var(--gutter) * 2) 0;
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-small {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.no-margin {
+  margin: 0;
 }
