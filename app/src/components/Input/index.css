@@ -4,8 +4,20 @@
 
 .input {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  margin: calc(var(--gutter) * 2) 0 0;
+  margin: calc(var(--gutter) * 2) 0;
+  min-width: 0;
+}
+
+/* Only add margin if input is first-child and not last-child */
+.input:first-child:not(:last-child) {
+  margin-right: calc(var(--gutter) * 1.5);
+}
+
+/* Only add margin if input is last-child and not fisrt-child */
+.input:last-child:not(:first-child) {
+  margin-left: calc(var(--gutter) * 1.5);
 }
 
 .input__label {
@@ -31,6 +43,7 @@
   color: var(--input);
   flex: 1;
   font-size: 1.6rem;
+  min-width: 0;
   padding: calc(var(--gutter) * 2);
 }
 

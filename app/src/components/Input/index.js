@@ -11,7 +11,7 @@ import Icon from "../Icon";
 import "./index.css";
 
 // Component
-const Input = ({ error, label, name, placeholder }) => {
+const Input = ({ error, label, name, placeholder, icon }) => {
   const inputControl = classNames([
     "input__control",
     error ? "input__control--error" : null
@@ -32,7 +32,7 @@ const Input = ({ error, label, name, placeholder }) => {
           id={name}
           placeholder={placeholder}
         />
-        <Icon className="input__control__icon" icon="view" />
+        {icon && <Icon className="input__control__icon" icon={icon} />}
       </div>
       <small className={inputError}>{error}</small>
     </div>
