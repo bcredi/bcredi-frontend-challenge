@@ -17,6 +17,9 @@
 }
 
 .signup__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
   max-width: 320px;
   min-height: calc(100% - 64px - 66px);
