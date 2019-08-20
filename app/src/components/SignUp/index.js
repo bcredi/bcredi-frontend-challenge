@@ -9,6 +9,7 @@ import Input from "../Input";
 import Link from "../Link";
 import Text from "../Text";
 import Title from "../Title";
+import Toast from "../Toast";
 import Toggle from "../Toggle";
 import Row from "../Row";
 
@@ -25,6 +26,8 @@ const ENDPOINT = "https://jsonplaceholder.typicode.com/users";
 const SignUp = ({ children }) => {
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({
     email: "",
     document: "",
@@ -45,8 +48,6 @@ const SignUp = ({ children }) => {
     setErrors([]);
     setLoading(true);
 
-    console.log(data);
-
     fetch(ENDPOINT, {
       method: "post",
       body: {
@@ -55,14 +56,17 @@ const SignUp = ({ children }) => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
-
+        setToast(true);
         setLoading(false);
+        setTimeout(() => {
+          setToast(false);
+        }, 3000);
       });
   }
 
   return (
     <div className="signup">
+      {toast && <Toast>Parabéns! Cadastro realizado com sucesso!</Toast>}
       <div className="signup__header">
         <Icon className="signup__header__logo" icon="logo" />
       </div>
@@ -109,8 +113,9 @@ const SignUp = ({ children }) => {
               error={errors.password}
               name="password"
               icon="view"
+              iconClick={() => setShowPassword(!showPassword)}
               onChange={handleChange}
-              type="password"
+              type={showPassword ? "text" : "password"}
             />
           </Row>
           <Box error={errors.terms}>
