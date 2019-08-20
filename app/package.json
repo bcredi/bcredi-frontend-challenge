@@ -8,6 +8,11 @@
     "build:dev": "npm run clean && webpack-dev-server -d --config ./configs/webpack.config.js --watch",
     "build:prod": "npm run clean && webpack -p --config ./configs/webpack.config.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
@@ -21,9 +26,11 @@
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-template": "^6.2.0",
+    "husky": "^3.0.4",
     "postcss-custom-properties": "^9.0.2",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "style-loader": "^1.0.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.2",
