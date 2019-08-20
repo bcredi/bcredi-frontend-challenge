@@ -8,6 +8,46 @@
   width: 40%;
 }
 
+.hero__overlay {
+  align-items: flex-end;
+  background-image: var(--gradient);
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  overflow: auto;
+  width: 100%;
+}
+
+.hero__overlay__content {
+  align-items: flex-end;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px;
+}
+
+.hero__quote {
+  font-size: 2rem;
+  text-align: right;
+}
+
+.hero__name {
+  font-weight: bold;
+}
+
+.hero__name,
+.hero__role {
+  font-size: 1.6rem;
+  margin: 0 0 var(--gutter);
+}
+
+.hero__quote,
+.hero__name,
+.hero__role {
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     display: none;

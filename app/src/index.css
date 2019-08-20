@@ -18,6 +18,14 @@
   --link: #4c8afe;
   --placeholder: #cccccc;
   --success: #2ecc71;
+  --gradient: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    transparent 22%,
+    transparent 44%,
+    rgba(0, 0, 0, 0.5) 76%,
+    rgba(0, 0, 0, 0.6) 89%
+  );
 
   /* Sizing */
   --radius: 3px;

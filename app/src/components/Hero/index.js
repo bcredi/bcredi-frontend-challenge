@@ -7,6 +7,7 @@ import BACKGROUND_THREE from "../../assets/images/signup-background-three.jpg";
 
 // Utils
 import random from "../../utils/randomBetween";
+import translate from "../../locales";
 
 // Styles
 import "./index.css";
@@ -19,7 +20,13 @@ const Hero = ({ children }) => {
 
   return (
     <div className="hero" style={{ backgroundImage: `url(${background})` }}>
-      {children}
+      <div className="hero__overlay">
+        <blockquote className="hero__overlay__content">
+          <p className="hero__quote">{translate("hero.quote")}</p>
+          <cite className="hero__name">{`Camila Bragança`}</cite>
+          <p className="hero__role">{`Sideral Tecnologia`}</p>
+        </blockquote>
+      </div>
     </div>
   );
 };
