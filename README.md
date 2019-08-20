@@ -1,6 +1,6 @@
 # Getting started
 
-Theres a instance of this project runnig on netlify and can be acessed [here](bcredi.netlify.com).
+Theres a instance of this project runnig on netlify and can be acessed [here](https://bcredi.netlify.com).
 
 ### Running local
 
