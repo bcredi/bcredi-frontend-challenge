@@ -14,7 +14,9 @@ const locales = {
     birthDate: "Birth date",
     birthDatePlaceholder: "MM/DD/YYYY",
     password: "Password",
-    passwordPlaceholder: "Create your password"
+    passwordPlaceholder: "Create your password",
+    submit: "Register",
+    submiting: "Saving"
   },
   terms: {
     preffix: "I have read and agree with ",
@@ -25,6 +27,13 @@ const locales = {
   footer: {
     preffix: "I already have an account.",
     suffix: "Sign in now"
+  },
+  errors: {
+    email: "Email is required",
+    document: "Document is required",
+    birtbirthdateh: "Birth date is required",
+    password: "Password is required",
+    terms: "Terms is required"
   }
 };
 

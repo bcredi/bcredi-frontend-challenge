@@ -14,7 +14,9 @@ const locales = {
     birthDate: "Data de nascimento",
     birthDatePlaceholder: "DD/MM/AAAA",
     password: "Senha",
-    passwordPlaceholder: "Cadastre uma senha"
+    passwordPlaceholder: "Cadastre uma senha",
+    submit: "Cadastrar",
+    submiting: "Salvando"
   },
   terms: {
     preffix: "Li e estou de acordo com a",
@@ -25,6 +27,13 @@ const locales = {
   footer: {
     preffix: "Já fiz meu cadastro.",
     suffix: "Entrar agora"
+  },
+  errors: {
+    email: "O email é obrigatório",
+    document: "O cpf é obrigatório",
+    birthdate: "A data é obrigatória",
+    password: "A senha é obrigatória",
+    terms: "É necessário aceitar os termos"
   }
 };
 
