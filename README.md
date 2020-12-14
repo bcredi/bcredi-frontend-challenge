@@ -19,34 +19,43 @@ Dentro do Zeplin você poderá exportar todos os assets necessários!
 * Documentação
   * Instruções de instalação, inicialização e testes
   * Descrição sobre as tecnologias utilizadas no projeto
-* Design responsivo e cross-browser (IE10+, Chrome, Safari e Firefox)
 * Pelo menos uma estratégia para organização do CSS
 * No _Copypasta_ allowed
+* Fazer implementaçāo da [API](https://reqres.in/) para registro (ou criar seu próprio mock [Mock.io](https://mocki.io/fake-json-api))
+* Página de sucesso após o `submit` do formuário
 * Validações no formulário
-  * Campos obrigatórios
-  * Formatos
-* Testes
+  * Senha
+    * Min 6
+    * Máx 18
+    * Caractéres especiais, números e letras
+  * E-mail
+    * Não pode ser em branco
+    * Deve ser um e-mail válido
+* Testes _(e2e/unit)_
 
 
 ### Você pode
-* Utilizar qualquer framework JS moderno (React, Vue, Svelte...)
-* Utilizar bibliotecas para o gerenciamento de estado (Redux, Vuex, Mobx...)
-* Utilizar pré ou pós-processadores de CSS, bem como frameworks e/ou starterpacks (Sass, PostCSS, CSS Modules, Styled Components...)
-* Utilizar [esse template](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md) (ou um similar) como base para a documentação
+* Utilizar qualquer framework JS moderno _(React, Vue, Polymer...)_
+* Utilizar recursos avançados do framework _(Hooks, contexts provider, mixins…)_
+* Utilizar Axios ou Fetch para requisiçōes HTTPS
+* Utilizar pré ou pós-processadores de CSS, bem como frameworks e/ou starterpacks _(Sass, PostCSS, CSS Modules, Styled Components...)_
+* Utilizar [esse template](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md) _(ou um similar)_ como base para a documentação
 * Alterar a proposta do layout caso necessário - você terá que nos explicar o porque das mudanças!
+* Utilizar nosso [design system](https://design.bcredi.com.br/)
+* Utilizar nossos pacotes do npm _([React Components](https://www.npmjs.com/package/@bcredi/react-components), [Vanilla Components](https://www.npmjs.com/package/@bcredi/vanilla-components), [Design Tokens](https://www.npmjs.com/package/@bcredi/design-tokens) ou [GlobalCss](https://www.npmjs.com/package/@bcredi/global-css))_
 
 
 ### O que gostaríamos de ver
 * Apesar de frameworks e libs ajudarem muito no nosso dia a dia, gostaríamos muito mais de ver o seu código em Vanilla JS
-* Testes unitários, e2e e/ou coverage (testes são parte importante do desenvolvimento; você pode utilizar Jest, Cypress, Mocha, Istanbul, Chai...)
-* Uma arquitetura consistente, focada na simplicidade do projeto (**keep it simple!**)
-* Justifique a utilização das tecnologias adotadas - quais foram os pontos positivos e negativos que elas trouxeram?
-
+* Testes unitários, e2e e/ou coverage _(testes são parte importante do desenvolvimento; você pode utilizar Jest, Cypress, Mocha, Istanbul, Chai...)_
+* Uma arquitetura consistente, focada na simplicidade do projeto _(**keep it simple!**)_
+* Deploy no Github pages ou similares
 
 ### Recomendações
 * Utilize boas práticas de programação
 * Utilize padrões como [BEM](http://getbem.com/), [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/), [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)...
-* Utilize boas práticas no git (commits pequenos, descrições relevantes)
+* Utilize boas práticas no Js [AIRBNB](https://github.com/airbnb/javascript), [GOOGLE](https://google.github.io/styleguide/jsguide.html), [STANDARDJS](https://standardjs.com/)
+* Utilize boas práticas no git _(commits pequenos, descrições relevantes)_
 
 
 ### Por fim
@@ -58,8 +67,7 @@ Usamos o mesmo teste para todos os níveis: **Junior**, **Pleno** e **Senior**; 
 ## :rocket: Entrega
 Para enviar seu código, você pode:
 
-* Enviar para [mauricio.girardello@bcredi.com.br](mailto:mauricio.girardello@bcredi.com.br) a URL do seu repositório no GitHub;
-* Fazer um fork deste repositório, criar uma branch com o seu nome e enviar um pull request.
+* Crie seu repositório no GitHub e envie a URL para [mauricio.girardello@bcredi.com.br](mailto:mauricio.girardello@bcredi.com.br);
 
 
 ## :busts_in_silhouette: Sobre a Bcredi
