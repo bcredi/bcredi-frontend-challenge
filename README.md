@@ -27,7 +27,7 @@ Dentro do Zeplin você poderá exportar todos os assets necessários!
   * Senha
     * Min 8
     * Máx 255
-    * Caractéres especiais, números e letras
+    * Caracteres especiais, números e letras
   * E-mail
     * Não pode ser em branco
     * Deve ser um e-mail válido
