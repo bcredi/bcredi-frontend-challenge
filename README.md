@@ -25,8 +25,8 @@ Dentro do Zeplin você poderá exportar todos os assets necessários!
 * Página de sucesso após o `submit` do formuário
 * Validações no formulário
   * Senha
-    * Min 6
-    * Máx 18
+    * Min 8
+    * Máx 255
     * Caractéres especiais, números e letras
   * E-mail
     * Não pode ser em branco
