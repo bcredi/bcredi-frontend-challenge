@@ -20,7 +20,7 @@ Dentro do Zeplin você poderá exportar todos os assets necessários!
   * Instruções de instalação, inicialização e testes
   * Descrição sobre as tecnologias utilizadas no projeto
 * Pelo menos uma estratégia para organização do CSS
-* No _Copypasta_ allowed
+* [_Copypasta_](https://pt.wikipedia.org/wiki/Copypasta) não é permitido!
 * Fazer implementaçāo da [API](https://reqres.in/) para registro (ou criar seu próprio mock [Mock.io](https://mocki.io/fake-json-api))
 * Página de sucesso após o `submit` do formuário
 * Validações no formulário
