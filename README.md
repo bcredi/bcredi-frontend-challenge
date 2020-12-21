@@ -16,40 +16,40 @@ Dentro do Zeplin você poderá exportar todos os assets necessários!
 ## :clipboard: Requisitos
 
 ### Requisitos obrigatórios
-* Documentação
-  * Instruções de instalação, inicialização e testes
-  * Descrição sobre as tecnologias utilizadas no projeto
-* Pelo menos uma estratégia para organização do CSS
-* [_Copypasta_](https://pt.wikipedia.org/wiki/Copypasta) não é permitido!
-* Fazer implementaçāo da [API](https://reqres.in/) para registro (ou criar seu próprio mock [Mock.io](https://mocki.io/fake-json-api))
-* Página de sucesso após o `submit` do formuário
-* Validações no formulário
-  * Senha
-    * Min 8
-    * Máx 255
-    * Caracteres especiais, números e letras
-  * E-mail
-    * Não pode ser em branco
-    * Deve ser um e-mail válido
-* Testes _(e2e/unit)_
+* Documentação'
+  * Instruções de instalação, inicialização e testes;
+  * Descrição sobre as tecnologias utilizadas no projeto.
+* Pelo menos uma estratégia para organização do CSS;
+* [_Copypasta_](https://pt.wikipedia.org/wiki/Copypasta) não é permitido!;
+* Fazer implementaçāo da [API](https://reqres.in/) para registro (ou criar seu próprio mock [Mock.io](https://mocki.io/fake-json-api));
+* Página de sucesso após o `submit` do formuário;
+* Validações no formulário;
+  * Senha;
+    * Min 8;
+    * Máx 255;
+    * Caracteres especiais, números e letras.
+  * E-mail;
+    * Não pode ser em branco;
+    * Deve ser um e-mail válido.
+* Testes _(e2e/unit)_.
 
 
 ### Você pode
-* Utilizar qualquer framework JS moderno _(React, Vue, Polymer...)_
-* Utilizar recursos avançados do framework _(Hooks, contexts provider, mixins…)_
-* Utilizar Axios ou Fetch para requisiçōes HTTPS
-* Utilizar pré ou pós-processadores de CSS, bem como frameworks e/ou starterpacks _(Sass, PostCSS, CSS Modules, Styled Components...)_
-* Utilizar [esse template](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md) _(ou um similar)_ como base para a documentação
-* Alterar a proposta do layout caso necessário - você terá que nos explicar o porque das mudanças!
-* Utilizar nosso [design system](https://design.bcredi.com.br/)
-* Utilizar nossos pacotes do npm _([React Components](https://www.npmjs.com/package/@bcredi/react-components), [Vanilla Components](https://www.npmjs.com/package/@bcredi/vanilla-components), [Design Tokens](https://www.npmjs.com/package/@bcredi/design-tokens) ou [GlobalCss](https://www.npmjs.com/package/@bcredi/global-css))_
+* Utilizar qualquer framework JS moderno _(React, Vue, Polymer...)_;
+* Utilizar recursos avançados do framework _(Hooks, contexts provider, mixins…)_;
+* Utilizar Axios ou Fetch para requisiçōes HTTPS;
+* Utilizar pré ou pós-processadores de CSS, bem como frameworks e/ou starterpacks _(Sass, PostCSS, CSS Modules, Styled Components...)_;
+* Utilizar [esse template](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md) _(ou um similar)_ como base para a documentação;
+* Alterar a proposta do layout caso necessário - você terá que nos explicar o porque das mudanças;
+* Utilizar nosso [design system](https://design.bcredi.com.br/) como referência;
+* Utilizar nossos pacotes do npm _([React Components](https://www.npmjs.com/package/@bcredi/react-components), [Vanilla Components](https://www.npmjs.com/package/@bcredi/vanilla-components), [Design Tokens](https://www.npmjs.com/package/@bcredi/design-tokens) ou [GlobalCss](https://www.npmjs.com/package/@bcredi/global-css))_.
 
 
 ### O que gostaríamos de ver
-* Apesar de frameworks e libs ajudarem muito no nosso dia a dia, gostaríamos muito mais de ver o seu código em Vanilla JS
-* Testes unitários, e2e e/ou coverage _(testes são parte importante do desenvolvimento; você pode utilizar Jest, Cypress, Mocha, Istanbul, Chai...)_
-* Uma arquitetura consistente, focada na simplicidade do projeto _(**keep it simple!**)_
-* Deploy no Github pages ou similares
+* Apesar de frameworks e libs ajudarem muito no nosso dia a dia, gostaríamos muito mais de ver o seu código em Vanilla JS;
+* Testes unitários, e2e e/ou coverage _(testes são parte importante do desenvolvimento; você pode utilizar Jest, Cypress, Mocha, Istanbul, Chai...)_;
+* Uma arquitetura consistente, focada na simplicidade do projeto _(**keep it simple!**)_;
+* Deploy no Github pages ou similares;
 
 ### Recomendações
 * Utilize boas práticas de programação
