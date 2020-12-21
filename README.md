@@ -67,7 +67,7 @@ Usamos o mesmo teste para todos os níveis: **Junior**, **Pleno** e **Senior**; 
 ## :rocket: Entrega
 Para enviar seu código, você pode:
 
-* Crie seu repositório no GitHub e envie a URL para [mauricio.girardello@bcredi.com.br](mailto:mauricio.girardello@bcredi.com.br);
+* Crie seu repositório no GitHub e envie a URL para [engenharia@bcredi.com.br](mailto:engenharia@bcredi.com.br);
 
 
 ## :busts_in_silhouette: Sobre a Bcredi
