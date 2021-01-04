@@ -21,16 +21,36 @@ Dentro do Zeplin você poderá exportar todos os assets necessários!
   * Descrição sobre as tecnologias utilizadas no projeto.
 * Pelo menos uma estratégia para organização do CSS;
 * [_Copypasta_](https://pt.wikipedia.org/wiki/Copypasta) não é permitido!;
-* Fazer implementaçāo da [API](https://reqres.in/) para registro (ou criar seu próprio mock [Mock.io](https://mocki.io/fake-json-api));
-* Página de sucesso após o `submit` do formuário;
-* Validações no formulário;
-  * Senha;
-    * Min 8;
-    * Máx 255;
-    * Caracteres especiais, números e letras.
-  * E-mail;
-    * Não pode ser em branco;
-    * Deve ser um e-mail válido.
+
+#### Formulário
+* Formulário para criar indicação 
+  * Nome;
+    * Obrigatório;
+    * Nome e sobrenome.
+  * CPF;
+    * Obrigatório;
+    * Deve ser um CPF válido.
+  * Data de nascimento;
+    * Obrigatório;
+    * Deve ser maior ou igual a 18 anos;
+  * Valor do emprestimo;
+    * Deve ser maior ou igual a R$ 30.000,00;
+    * Deve ser menor que 50% do valor do imóvel;
+  * Valor do imóvel;
+    * Não pode ser menor que R$ 150.000,00;
+  * Imóvel está quitado;
+  * Qual o saldo devedor do imóvel?.
+    * Se o imóvel não está quitado, solicitar saldo devedor;
+    * Máx. R$ 15.000.000,00.
+* Persistir dados na store após o envio do formulário.
+    
+#### Sucesso (wip)
+* Criar rota `/indicacoes`;
+* Mostrar mensagem de sucesso;
+* Recuperar dados da store;
+* Exibir tabela
+
+    
 * Testes _(e2e/unit)_.
 
 
