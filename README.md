@@ -1,76 +1,46 @@
-<img src="logo.svg" width="120" alt="Bcredi">
+# Getting Started with Create React App
 
-# Bcredi Front-end Challenge
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Bem-vindo/a ao nosso teste para desenvolvedores/as front-end.  
+## Available Scripts
 
-## :scroll: Sobre o teste
-Nosso teste consiste em codificar uma interface de login, que está disponível no Zeplin. Para acessar o layout:
+In the project directory, you can run:
 
-1. Acesse o link [https://zpl.io/aRPm98n](https://zpl.io/aRPm98n).
-2. Faça login usando as credenciais: (usuário) **candidatobcredi** / (senha) **testebcredi123**.
+### `yarn start`
 
-Dentro do Zeplin você poderá exportar todos os assets necessários!
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## :clipboard: Requisitos
+### `yarn test`
 
-### Requisitos obrigatórios
-* Documentação
-  * Instruções de instalação, inicialização e testes
-  * Descrição sobre as tecnologias utilizadas no projeto
-* Design responsivo e cross-browser (IE10+, Chrome, Safari e Firefox)
-* Pelo menos uma estratégia para organização do CSS
-* No _Copypasta_ allowed
-* Validações no formulário
-  * Campos obrigatórios
-  * Formatos
-* Testes
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn build`
 
-### Você pode
-* Utilizar qualquer framework JS moderno (React, Vue, Svelte...)
-* Utilizar bibliotecas para o gerenciamento de estado (Redux, Vuex, Mobx...)
-* Utilizar pré ou pós-processadores de CSS, bem como frameworks e/ou starterpacks (Sass, PostCSS, CSS Modules, Styled Components...)
-* Utilizar [esse template](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md) (ou um similar) como base para a documentação
-* Alterar a proposta do layout caso necessário - você terá que nos explicar o porque das mudanças!
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### O que gostaríamos de ver
-* Apesar de frameworks e libs ajudarem muito no nosso dia a dia, gostaríamos muito mais de ver o seu código em Vanilla JS
-* Testes unitários, e2e e/ou coverage (testes são parte importante do desenvolvimento; você pode utilizar Jest, Cypress, Mocha, Istanbul, Chai...)
-* Uma arquitetura consistente, focada na simplicidade do projeto (**keep it simple!**)
-* Justifique a utilização das tecnologias adotadas - quais foram os pontos positivos e negativos que elas trouxeram?
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn eject`
 
-### Recomendações
-* Utilize boas práticas de programação
-* Utilize padrões como [BEM](http://getbem.com/), [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/), [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)...
-* Utilize boas práticas no git (commits pequenos, descrições relevantes)
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Por fim
-A ideia não é prescrever uma receita exata de como o desafio deve ser resolvido. Por isso, resolva-o da forma que achar melhor. O importante para nós é entender como você codifica uma interface e seu fluxo de trabalho. Além disso, considere que estamos à disposição para qualquer dúvida!
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Usamos o mesmo teste para todos os níveis: **Junior**, **Pleno** e **Senior**; mas procuramos adequar nossa exigência na avaliação com cada um desses níveis.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Learn More
 
-## :rocket: Entrega
-Para enviar seu código, você pode:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-* Enviar para [mauricio.girardello@bcredi.com.br](mailto:mauricio.girardello@bcredi.com.br) a URL do seu repositório no GitHub;
-* Fazer um fork deste repositório, criar uma branch com o seu nome e enviar um pull request.
-
-
-## :busts_in_silhouette: Sobre a Bcredi
-Nós somos uma fintech que nasceu dentro da Barigui Cia Hipotecária, que tem mais de 10 anos de mercado e já originou mais de R$ 600 milhões em crédito imobiliário. Juntamos essa experiência com nossa tecnologia e vontade de inovar para oferecer uma solução descomplicada para quem procura Crédito com Garantia de Imóvel e Financiamento Imobiliário. 
-
-Nosso propósito é fazer com que os clientes percam menos tempo em burocracias e mais tempo utilizando seu dinheiro de forma consciente, com menos juros e mais prazo para pagamento. Para isso estamos desenvolvendo uma plataforma que envolve toda a cadeia do produto e temos o objetivo de nos tornar líderes em serviços de crédito imobiliário no Brasil.
-
-Para encarar esse desafio, precisamos de pessoas que acreditem no impacto do nosso negócio na economia do país. Mais do que isso, queremos trabalhar com pessoas que não se contentem com o óbvio, que participem, sem ter medo de errar e aprender, e que inspirem, com ideias para simplificar a rotina das pessoas. E aí, vamos descomplicar com a gente?  
-
-Boa sorte! :boom:
-
----
-
-[Site da Bcredi](https://bcredi.com.br) | [Página de Carreiras](https://bcredi.gupy.io/)
+To learn React, check out the [React documentation](https://reactjs.org/).

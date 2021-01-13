@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  --base-color-white: #ffffff;
+  --base-color-warm-grey: #8f8f8f;
+  --base-color-pinkish-grey: #cccccc;
+  --base-color-border: #e6e6e6;
+  --base-color-text: #333333;
+  --base-color-error: #ff5863;
+  --base-color-success: #2ecc71;
+  --base-color-link: #4c8afe;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
