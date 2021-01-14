@@ -6,23 +6,23 @@ import EmailInput from "../EmailInput";
 import Checkbox from "../CheckBox";
 import BirthDateInput from "../BirthDateInput";
 import CpfInput from "../CpfInput";
+import PasswordInput from "../PasswordInput";
 /* import bcrypt from "bcryptjs"; */
 
 interface User {
   email: string;
   cpf: string;
-  birthDate: Date;
+  birthDate: string;
   password: string;
 }
 
 interface props {
-  handleSuccess: () => void;
+  handleSubmit: () => void;
 }
 
-const RegisterFormContainer = ({ handleSuccess }: props) => {
+const RegisterFormContainer = ({ handleSubmit }: props) => {
   // Estados de controle
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [passwordVisible, setPasswordVisibility] = useState(false);
 
   // Dados obtidos através dos inputs
   const [userData, setUserData] = useState<User>({} as User);
@@ -36,27 +36,33 @@ const RegisterFormContainer = ({ handleSuccess }: props) => {
   const [readCheckError, setReadCheckError] = useState(false);
 
   function resetForm() {
-    setUserData({} as User);
+    setUserData({ email: "", cpf: "", birthDate: "", password: "" });
   }
 
   console.log("USER DATA: ", userData); // PRINT
   console.log("Aceito os termos: ", readCheck); // PRINT
 
-  /* const onSubmit = (userData) => {
-    userData.password = bcrypt.hashSync(userData.password, 10);
-    dispatch(saveUserInfo(userData));
-    setRegistered(true);
-    reset(defaultValues);
-    setUserData(defaultValues);
-    setTimeout(() => setRegistered(false), 3000);
-  }; */
-
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+    /* userData.password = bcrypt.hashSync(userData.password, 10); */
+    if (!userData.email || userData.email === "") {
+      setEmailError(true);
+    } else if (!userData.cpf || userData.cpf === "") {
+      setCpfError(true);
+    } else if (!userData.birthDate || userData.birthDate === "") {
+      setBirthDateError(true);
+    } else if (!userData.password || userData.password === "") {
+      setPasswordError(true);
+    } else if (!readCheck) {
+      setReadCheckError(true);
+    } else {
+      handleSubmit();
+      resetForm();
+    }
   };
 
   const handleChange = (Event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = Event.target
+    const { name, value } = Event.target;
     setUserData({ ...userData, [name]: value });
   };
 
@@ -69,34 +75,33 @@ const RegisterFormContainer = ({ handleSuccess }: props) => {
       </FormText>
       <Form name="register" onSubmit={onSubmit}>
         <EmailInput
+          setEmpty={setEmailError}
           handleChange={handleChange}
           error={emailError}
           value={userData.email}
         />
-
         <FlexGroup>
           <CpfInput
+            setEmpty={setCpfError}
             error={cpfError}
             handleChange={handleChange}
             value={userData.cpf}
           />
           <BirthDateInput
+            setEmpty={setBirthDateError}
             error={birthDateError}
             handleChange={handleChange}
             value={userData.birthDate && userData.birthDate.toString()}
           />
         </FlexGroup>
-
-        {/*           <PasswordInput
-            register={register}
-            handleChange={handleChange}
-            errors={errors}
-            togglePassword={togglePassword}
-            passwordVisible={passwordVisible}
-            applyMask={applyMask}
-            userData={userData}
-          /> */}
+        <PasswordInput
+          setEmpty={setPasswordError}
+          handleChange={handleChange}
+          error={passwordError}
+          value={userData.password}
+        />
         <Checkbox
+          setNotChecked={setReadCheckError}
           handleChange={setReadCheck}
           error={readCheckError}
           value={readCheck}
@@ -147,7 +152,8 @@ const FormFooter = styled.div`
   justify-content: center;
   align-items: center;
   border-top: 1px solid var(--base-color-border);
-  margin-top: 88px;
+  margin-top: 20px;
+  margin-bottom: 16px;
   padding-top: 16px;
 
   > p {
@@ -163,87 +169,34 @@ const FormFooter = styled.div`
 
   @media (max-width: 600px) {
     width: 312px;
+    margin-top: 81px;
+    padding-top: 15.8px;
   }
 `;
 
 const RegisterFormWrapper = styled.div`
   width: 320px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 38px;
+  margin-bottom: 40px;
 
   @media (max-width: 600px) {
     width: 312px;
-    height: 64px;
     margin-top: 84px;
+    margin-bottom: 32px;
   }
 `;
 
 const Form = styled.form`
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-
-  .register__input-wrapper {
-    position: relative;
-    text-align: left;
-    margin-top: 23px;
-  }
-
-  .register__label {
-    width: 320px;
-    font-size: 14px;
-    line-height: 18px;
-    color: var(--base-color-warm-grey);
-    text-align: left;
-    margin-top: 23px;
-  }
-
-  .register__label--small {
-    width: 148px;
-  }
-
-  .register__message {
-    width: 320px;
-    font-size: 14px;
-    line-height: 18px;
-    color: var(--base-color-error);
-    text-align: left;
-    position: absolute;
-  }
-
-  .register__container {
-    width: 320px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-
-  .register__small-input-container {
-    width: 148px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  .register__input--toggle-eye {
-    position: relative;
-    display: flex;
-  }
-  i.register__icon--eye {
-    position: absolute;
-    top: 38%;
-    right: 5%;
-    color: var(--base-color-warm-grey);
-  }
-
-  i.register__icon--eye:hover {
-    color: var(--base-color-text);
-    cursor: pointer;
-  }
+  padding-top: 23px;
 `;
 
 const FlexGroup = styled.div`
@@ -251,7 +204,7 @@ const FlexGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 35px;
+  margin-top: 30px;
 
   @media (max-width: 600px) {
     width: 312px;
@@ -269,10 +222,23 @@ const ActionButton = styled.button`
   border: none;
   border-radius: 3px;
   padding: 14px 10px;
-  margin-top: 48px;
   color: var(--base-color-white);
   cursor: pointer;
-  position: relative > svg {
+  margin-top: 48px;
+  margin-bottom: auto;
+  position: relative;
+  transition: all ease-out 0.1s;
+
+  &:hover {
+    background-color: var(--base-color-link-hover);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  &: focus {
+    outline: 0;
+  }
+
+  > svg {
     position: absolute !important;
   }
 
@@ -288,63 +254,10 @@ const ActionButton = styled.button`
 `;
 
 const LockIcon = styled(FontAwesomeIcon)`
+  width: 10px;
+  height: 12.3px;
   position: relative;
-  left: -90px;
+  left: 31px;
 `;
-
-/* const StyledInput = styled.input`
-  height: 48px;
-  width: ${(props) => props.width};
-  margin: 7px auto 5px auto;
-  border-radius: 3px;
-  padding-left: 14px;
-  outline: none;
-
-  &:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-  }
-`;
-
-const StyledMessage = styled.div`
-  position: absolute;
-  top: "78px";
-  left: "0px";
-`;
-
-const CheckboxContainer = styled.div`
-  height: 56px;
-  width: 320px;
-  margin: 31px auto 48px auto;
-  border-radius: 3px;
-  border: 1px solid #e6e6e6;
-  padding-left: 14px;
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-
-  .register__input--checkbox {
-    width: 24px;
-    height: 24px;
-    margin-top: 16px;
-  }
-
-  .register__checkbox-label {
-    width: 267px;
-    height: 40px;
-    margin: 7px 5px 9px 12px;
-    font-size: 12px;
-    line-height: 20px;
-    color: var(--base-color-pinkish-grey);
-  }
-
-  .register__checkbox-label > a {
-    color: #4c8afe;
-    text-decoration: none;
-  }
-`; */
 
 export default RegisterFormContainer;

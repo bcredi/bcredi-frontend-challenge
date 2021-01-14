@@ -1,40 +1,47 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { InputError, Input } from "../../styles";
+import { InputWrapper, InputError, Input } from "../../styles";
 
 interface props {
+  setEmpty: React.Dispatch<React.SetStateAction<boolean>>;
   error: boolean;
   handleChange: any;
   value: string;
 }
 
-const EmailInput = ({ error, handleChange, value }: props) => {
+const EmailInput = ({ setEmpty, error, handleChange, value }: props) => {
   const [validEmail, setValidEmail] = useState(true);
 
   function validateEmail(value: string) {
-    const user = value.substring(0, value.indexOf("@"));
-    const domain = value.substring(value.indexOf("@") + 1, value.length);
-    if (
-      user.length >= 1 &&
-      user.search("@") === -1 &&
-      user.search(" ") === -1 &&
-      domain.length >= 3 &&
-      domain.search("@") === -1 &&
-      domain.search(" ") === -1 &&
-      domain.search(".") !== -1 &&
-      domain.indexOf(".") >= 1 &&
-      domain.lastIndexOf(".") < domain.length - 1
-    ) {
-      setValidEmail(true);
+    if (value !== "") {
+      setEmpty(false);
+      const user = value.substring(0, value.indexOf("@"));
+      const domain = value.substring(value.indexOf("@") + 1, value.length);
+      if (
+        user.length >= 1 &&
+        user.search("@") === -1 &&
+        user.search(" ") === -1 &&
+        domain.length >= 3 &&
+        domain.search("@") === -1 &&
+        domain.search(" ") === -1 &&
+        domain.search(".") !== -1 &&
+        domain.indexOf(".") >= 1 &&
+        domain.lastIndexOf(".") < domain.length - 1
+      ) {
+        setValidEmail(true);
+      } else {
+        setValidEmail(false);
+      }
     } else {
-      setValidEmail(false);
+      setValidEmail(true);
     }
   }
 
   return (
-    <InputWrapper>
+    <StyledInputWrapper>
       <InputLabel>E-mail</InputLabel>
       <Input
+        required
         type="text"
         className="email-input"
         placeholder="ana.maria@email.com"
@@ -43,6 +50,7 @@ const EmailInput = ({ error, handleChange, value }: props) => {
         onChange={handleChange}
         maxLength={60}
         onBlur={(e) => validateEmail(e.target.value)} // Quando o input perde o foco
+        onInvalid={() => setEmpty(true)}
         style={{
           border: `1px solid ${
             error || !validEmail
@@ -58,31 +66,28 @@ const EmailInput = ({ error, handleChange, value }: props) => {
       />
       <InputError>
         {!validEmail
-          ? "O e-mail informado não é válido."
+          ? "O e-mail informado não é válido"
           : error
-          ? "O campo e-mail não pode ser vazio."
+          ? "O campo e-mail é obrigatório"
           : null}
       </InputError>
-    </InputWrapper>
+    </StyledInputWrapper>
   );
 };
-
-const InputWrapper = styled.div`
-  width: 320px;
-  position: relative;
-  text-align: left;
-  margin-top: 23px;
-
-  @media (max-width: 600px) {
-    width: 312px;
-  }
-`;
 
 const InputLabel = styled.label`
   font-size: 14px;
   line-height: 18px;
   color: var(--base-color-warm-grey);
   text-align: left;
+`;
+
+const StyledInputWrapper = styled(InputWrapper)`
+  margin-top: 0;
+
+  @media (max-width: 600px) {
+    margin-top: 0;
+  }
 `;
 
 export default EmailInput;

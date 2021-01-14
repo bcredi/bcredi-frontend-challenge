@@ -1,14 +1,12 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 interface props {
   image: string;
-  quote: string;
-  author: string;
-  company: string;
+  children: ReactNode;
 }
 
-const Hero = ({ image, quote, author, company }: props) => {
+const Hero = ({ image, children }: props) => {
   const ImageWrapper = styled.div`
     height: 100vh;
     width: 43.203125%;
@@ -32,11 +30,7 @@ const Hero = ({ image, quote, author, company }: props) => {
 
   return (
     <ImageWrapper>
-      <HeroContent>
-        <HeroQuote>{quote}</HeroQuote>
-        <HeroAuthorInfo>{`${author},`}</HeroAuthorInfo>
-        <HeroAuthorInfo>{company}</HeroAuthorInfo>
-      </HeroContent>
+      <HeroContent>{children}</HeroContent>
     </ImageWrapper>
   );
 };
@@ -48,15 +42,6 @@ const HeroContent = styled.div`
   position: absolute;
   right: 7.25%;
   bottom: 4.72%;
-`;
-const HeroQuote = styled.p`
-  margin-bottom: 8px;
-  font-size: 20px;
-  line-height: 30px;
-`;
-const HeroAuthorInfo = styled.p`
-  font-size: 16px;
-  line-height: 24px;
 `;
 
 export default Hero;

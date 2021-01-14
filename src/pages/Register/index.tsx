@@ -1,26 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Hero from "../../components/Hero";
 import RegisterForm from "../../components/RegisterForm";
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import heroImage from "../../assets/rawpixel-411166-unsplash@2x.png";
+import { HeroQuote, HeroAuthorInfo } from "../../styles";
 
 const Register = () => {
   const [registered, setRegistered] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (window.sessionStorage.getItem("firstLoad") === null) {
+      setAnimate(true);
+      window.sessionStorage.setItem("firstLoad", "1");
+    } else {
+      setAnimate(false);
+    }
+  }, []);
 
   const handleRegisterSuccess = () => {
     setRegistered(true);
     setTimeout(() => setRegistered(false), 3000);
   };
 
-  const quote =
-    "Obtive crédito para capital de giro. O processo foi bem sucedido e tudo que foi abordado, foi cumprido.";
-  const author = "Camila Bragança";
-  const company = "Sideral Tecnologia";
-
   return (
     <PageWrapper>
-      <Hero image={heroImage} quote={quote} author={author} company={company} />
+      <Hero image={heroImage}>
+        <HeroQuote>
+          Obtive crédito para capital de giro. O processo foi bem sucedido e
+          tudo que foi abordado, foi cumprido.
+        </HeroQuote>
+        <HeroAuthorInfo>Camila Bragança,</HeroAuthorInfo>
+        <HeroAuthorInfo>Sideral Tecnologia</HeroAuthorInfo>
+      </Hero>
       <RegisterWapper>
         <SuccessBar className={registered ? "visible" : ""}>
           Parabéns! Cadastro realizado com sucesso!
@@ -28,7 +41,7 @@ const Register = () => {
         <Header>
           <Logo className="logo" />
         </Header>
-        <RegisterForm handleSuccess={handleRegisterSuccess} />
+        <RegisterForm handleSubmit={handleRegisterSuccess} />
       </RegisterWapper>
     </PageWrapper>
   );
@@ -41,6 +54,7 @@ const PageWrapper = styled.div`
 `;
 
 const RegisterWapper = styled.div`
+  height: 100vh;
   width: 56.8%;
   display: flex;
   flex-direction: column;
@@ -49,15 +63,16 @@ const RegisterWapper = styled.div`
 
   .visible {
     visibility: visible !important;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    -webkit-animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+    animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
   }
 
   @media (max-width: 600px) {
     width: 100%;
+    height: 100%;
   }
 
-  @-webkit-keyframes fadein {
+  @-webkit-keyframes fadeIn {
     from {
       top: -64px;
       opacity: 0;
@@ -67,7 +82,7 @@ const RegisterWapper = styled.div`
       opacity: 1;
     }
   }
-  @keyframes fadein {
+  @keyframes fadeIn {
     from {
       top: -64;
       opacity: 0;
@@ -77,7 +92,7 @@ const RegisterWapper = styled.div`
       opacity: 1;
     }
   }
-  @-webkit-keyframes fadeout {
+  @-webkit-keyframes fadeOut {
     from {
       top: 0;
       opacity: 1;
@@ -87,7 +102,7 @@ const RegisterWapper = styled.div`
       opacity: 0;
     }
   }
-  @keyframes fadeout {
+  @keyframes fadeOut {
     from {
       top: 0;
       opacity: 1;
@@ -105,7 +120,8 @@ const SuccessBar = styled.div`
   height: 64px;
   padding-top: 20px;
   background-color: var(--base-color-success);
-  position: absolute;
+  position: fixed;
+  z-index: 90;
   color: var(--base-color-white);
   text-align: center;
   font-size: 16px;

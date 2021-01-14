@@ -3,31 +3,69 @@ import styled from "styled-components";
 import { InputError, Input } from "../../styles";
 
 interface props {
+  setEmpty: React.Dispatch<React.SetStateAction<boolean>>;
   error: boolean;
   handleChange: any;
   value: string;
 }
 
-const BirthDateInput = ({ error, handleChange, value }: props) => {
+const BirthDateInput = ({ setEmpty, error, handleChange, value }: props) => {
   const [validBirthDate, setValidBirthDate] = useState(true);
 
-  function validateBirthDate(date: string) {
+  function validateFormat(date: string): boolean {
     const match = date.match(
-      /^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$/g
+      /^([1-9]|0[1-9]|[12][0-9]|3[01])[/]([1-9]|0[1-9]|1[012])[/](19|20)\d\d$/
     );
+    return match !== null;
+  }
 
-    console.log("Match? ", match); // PRINT
+  function validateBirthDate(date: string) {
+    if (date !== "") {
+      setEmpty(false);
+      const correctFormat = validateFormat(date);
 
-    if (match !== null) {
-      const newDate = new Date(date);
-      console.log("Date parse:", newDate); // PRINT
-      if (newDate !== null) {
-        setValidBirthDate(true);
+      console.log("Match? ", correctFormat); // PRINT
+
+      if (correctFormat) {
+        const currentYear = new Date().getFullYear();
+        const monthMaxDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const [day, month, year] = date.split("/").map((s) => +s); // Conversão para int
+
+        if (year <= currentYear) {
+          // months - fev
+          if (month === 1 || month > 2) {
+            if (day > monthMaxDays[month - 1]) {
+              setValidBirthDate(false);
+              return;
+            } else {
+              setValidBirthDate(true);
+              return;
+            }
+          }
+
+          // fev
+          if (month === 2) {
+            const leapYear =
+              (!(year % 4) && year % 100) || (!(year % 400) as boolean);
+            if (!leapYear && day >= 29) {
+              setValidBirthDate(false);
+              return;
+            } else if (leapYear && day > 29) {
+              setValidBirthDate(false);
+              return;
+            } else {
+              setValidBirthDate(true);
+              return;
+            }
+          }
+        } else {
+          setValidBirthDate(false);
+          return;
+        }
       } else {
         setValidBirthDate(false);
+        return;
       }
-    } else {
-      setValidBirthDate(false);
     }
   }
 
@@ -35,9 +73,10 @@ const BirthDateInput = ({ error, handleChange, value }: props) => {
     <InputWrapper>
       <InputLabel>Data de nascimento</InputLabel>
       <StyledInput
+        required
         type="text"
         placeholder="DD/MM/AAAA"
-        maxLength={8}
+        maxLength={10}
         name="birthDate"
         value={value}
         onChange={(e) => {
@@ -48,6 +87,7 @@ const BirthDateInput = ({ error, handleChange, value }: props) => {
           handleChange(e);
         }}
         onBlur={(e) => validateBirthDate(e.target.value)}
+        onInvalid={() => setEmpty(true)}
         style={{
           border: `1px solid ${
             error || !validBirthDate
@@ -61,19 +101,11 @@ const BirthDateInput = ({ error, handleChange, value }: props) => {
           }`,
         }}
       />
-      {/* <input
-        type="text"
-        name="input"
-        placeholder="DD-MM-YY"
-        required
-        pattern="(?:30))|(?:(?:0\[13578\]|1\[02\])-31))-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])"
-        title="Enter a date in this format YYYY-MM-DD"
-      /> */}
       <StyledInputError>
         {!validBirthDate
-          ? "Data inválida."
+          ? "Data inválida"
           : error
-          ? "O campo não pode ser vazio."
+          ? "O campo é obrigatório"
           : null}
       </StyledInputError>
     </InputWrapper>
@@ -100,7 +132,7 @@ const InputLabel = styled.label`
 
   @media (max-width: 600px) {
     width: 312px;
-    margin-top: 35px;
+    margin-top: 30px;
   }
 `;
 
@@ -112,7 +144,7 @@ const StyledInputError = styled(InputError)`
   top: 78px;
 
   @media (max-width: 600px) {
-    top: 112px;
+    top: 114px;
   }
 `;
 
