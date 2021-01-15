@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checks if the component is correctly rendered 1`] = `
+<div
+  className="sc-fubCfw kdOtdE"
+>
+  <div
+    className="sc-iwyYcG ehulxO"
+  >
+    <div
+      className="sc-bdfBwQ eCgAqB"
+    >
+      <p
+        className="sc-bqyKva eERNPF"
+      >
+        Obtive crédito para capital de giro. O processo foi bem sucedido e tudo que foi abordado, foi cumprido.
+      </p>
+      <p
+        className="sc-kstrdz bdYFic"
+      >
+        Camila Bragança,
+      </p>
+      <p
+        className="sc-kstrdz bdYFic"
+      >
+        Sideral Tecnologia
+      </p>
+    </div>
+  </div>
+  <div
+    className="sc-pFZIQ ktQqdk"
+  >
+    <div
+      className="sc-jrAGrp ivFtxa"
+    >
+      Parabéns! Cadastro realizado com sucesso!
+    </div>
+    <div
+      className="sc-kEjbxe jtpAVm"
+    >
+      <svg
+        className="logo"
+      >
+        logo.svg
+      </svg>
+    </div>
+    <div
+      className="sc-eCssSg fYyVrr"
+    >
+      <div
+        className="sc-gsTCUz eiJECs"
+      >
+        Criar meu cadastro
+      </div>
+      <div
+        className="sc-dlfnbm gnQMrH"
+      >
+        Para acompanhar sua contratação de crédito você utilizará seu e-mail e CPF.
+      </div>
+      <form
+        className="sc-jSgupP giojUI"
+        name="register"
+        onSubmit={[Function]}
+      >
+        <div
+          className="sc-iqHYGH sc-fodVxV jYtvol kzFHmz"
+        >
+          <label
+            className="sc-bkzZxe drOPsz"
+          >
+            E-mail
+          </label>
+          <input
+            className="sc-crrsfI fbzJqX"
+            maxLength={60}
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onInvalid={[Function]}
+            placeholder="ana.maria@email.com"
+            required={true}
+            style={
+              Object {
+                "border": "1px solid var(--base-color-border)",
+                "color": "var(--base-color-text)",
+              }
+            }
+            type="text"
+          />
+          <div
+            className="sc-dQppl jgAhXB"
+          />
+        </div>
+        <div
+          className="sc-hBEYos hUjBeT"
+        >
+          <div
+            className="sc-iqHYGH sc-fFubgz jYtvol gPLVfs"
+          >
+            <label
+              className="sc-bkzZxe drOPsz"
+            >
+              CPF
+            </label>
+            <input
+              className="sc-crrsfI fbzJqX"
+              maxLength={14}
+              name="cpf"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onInvalid={[Function]}
+              placeholder="000.000.000-00"
+              required={true}
+              style={
+                Object {
+                  "border": "1px solid var(--base-color-border)",
+                  "color": "var(--base-color-text)",
+                }
+              }
+              type="text"
+            />
+            <div
+              className="sc-dQppl jgAhXB"
+            />
+          </div>
+          <div
+            className="sc-iqHYGH sc-fFubgz jYtvol gPLVfs"
+          >
+            <label
+              className="sc-bkzZxe drOPsz"
+            >
+              Data de nascimento
+            </label>
+            <input
+              className="sc-crrsfI fbzJqX"
+              maxLength={10}
+              name="birthDate"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onInvalid={[Function]}
+              placeholder="DD/MM/AAAA"
+              required={true}
+              style={
+                Object {
+                  "border": "1px solid var(--base-color-border)",
+                  "color": "var(--base-color-text)",
+                }
+              }
+              type="text"
+            />
+            <div
+              className="sc-dQppl jgAhXB"
+            />
+          </div>
+        </div>
+        <div
+          className="sc-iqHYGH jYtvol"
+        >
+          <label
+            className="sc-bkzZxe drOPsz"
+          >
+            Senha
+          </label>
+          <input
+            className="sc-crrsfI fbzJqX"
+            maxLength={60}
+            minLength={8}
+            name="password"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onInvalid={[Function]}
+            placeholder="Cadastre uma senha"
+            required={true}
+            style={
+              Object {
+                "border": "1px solid var(--base-color-border)",
+                "color": "var(--base-color-text)",
+              }
+            }
+            type="password"
+          />
+          <svg
+            className="sc-idOhPF celsMQ"
+            onClick={[Function]}
+          >
+            eye-solid.svg
+          </svg>
+          <div
+            className="sc-dQppl jgAhXB"
+          />
+        </div>
+        <div
+          className="sc-fKFyDc dTkuAY"
+          style={
+            Object {
+              "border": "1px solid var(--base-color-border)",
+            }
+          }
+        >
+          <div
+            className="sc-hHftDr kixkbK"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "",
+              }
+            }
+          />
+          <div
+            className="sc-kfzAmx ksRRvs"
+          >
+            Li e estou de acordo com a
+             
+            <a
+              href="/privacy-policy"
+              title="Política de privacidade - Bcredi"
+            >
+              Política de Privacidade
+            </a>
+             
+            e a
+             
+            <a
+              href="/use-policy"
+              title="Política de uso - Bcredi"
+            >
+              Política de Uso de Informações
+            </a>
+            .
+          </div>
+        </div>
+        <button
+          className="sc-gKsewC kOxlVr"
+          type="submit"
+        >
+          <svg
+            className="sc-iBPRYJ iBItGe"
+          >
+            lock-solid.svg
+          </svg>
+          <p>
+            Cadastrar
+          </p>
+        </button>
+      </form>
+      <div
+        className="sc-hKgILt cxvhoh"
+      >
+        <p>
+          Já fiz o meu cadastro. 
+          <a
+            href="/login"
+          >
+            Entrar agora.
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

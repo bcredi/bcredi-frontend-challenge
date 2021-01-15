@@ -9,31 +9,60 @@ interface props {
   value: string;
 }
 
+/* function validate(email: string) {
+  if (email !== "") {
+    const user = email.substring(0, email.indexOf("@"));
+    const domain = email.substring(email.indexOf("@") + 1, email.length);
+    if (
+      user.length >= 1 &&
+      user.search("@") === -1 &&
+      user.search(" ") === -1 &&
+      domain.length >= 3 &&
+      domain.search("@") === -1 &&
+      domain.search(" ") === -1 &&
+      domain.search(".") !== -1 &&
+      domain.indexOf(".") >= 1 &&
+      domain.lastIndexOf(".") < domain.length - 1
+    ) {
+      return 1;
+    } else {
+      return "incorrect format";
+    }
+  } else {
+    return "empty email";
+  }
+} */
+
+function validateEmailFormat(email: string) {
+  if (email !== "") {
+    const match = email.match(
+      // eslint-disable-next-line no-useless-escape
+      /^(([^<>()[\]\\.,+`^*!'¨|;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+    const correctFormat = match !== null;
+    if (correctFormat) {
+      return 1;
+    } else {
+      return "incorrect format";
+    }
+  } else {
+    return "empty email";
+  }
+}
+
 const EmailInput = ({ setEmpty, error, handleChange, value }: props) => {
   const [validEmail, setValidEmail] = useState(true);
 
-  function validateEmail(value: string) {
-    if (value !== "") {
+  function validateEmail(email: string) {
+    const emailValidationStatus = validateEmailFormat(email);
+    if (emailValidationStatus === 1) {
       setEmpty(false);
-      const user = value.substring(0, value.indexOf("@"));
-      const domain = value.substring(value.indexOf("@") + 1, value.length);
-      if (
-        user.length >= 1 &&
-        user.search("@") === -1 &&
-        user.search(" ") === -1 &&
-        domain.length >= 3 &&
-        domain.search("@") === -1 &&
-        domain.search(" ") === -1 &&
-        domain.search(".") !== -1 &&
-        domain.indexOf(".") >= 1 &&
-        domain.lastIndexOf(".") < domain.length - 1
-      ) {
-        setValidEmail(true);
-      } else {
-        setValidEmail(false);
-      }
-    } else {
+      return setValidEmail(true);
+    } else if (emailValidationStatus === "empty email") {
       setValidEmail(true);
+    } else {
+      setEmpty(false);
+      return setValidEmail(false);
     }
   }
 
@@ -90,4 +119,4 @@ const StyledInputWrapper = styled(InputWrapper)`
   }
 `;
 
-export default EmailInput;
+export { EmailInput, validateEmailFormat };

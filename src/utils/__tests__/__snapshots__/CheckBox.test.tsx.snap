@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checks if the component is correctly rendered 1`] = `
+<div
+  className="sc-crrsfI gFXVXS"
+  style={
+    Object {
+      "border": "1px solid var(--base-color-border)",
+    }
+  }
+>
+  <div
+    className="sc-jrAGrp ikUFki"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  />
+  <div
+    className="sc-iqHYGH frbYUl"
+  >
+    Li e estou de acordo com a
+     
+    <a
+      href="/privacy-policy"
+      title="Política de privacidade - Bcredi"
+    >
+      Política de Privacidade
+    </a>
+     
+    e a
+     
+    <a
+      href="/use-policy"
+      title="Política de uso - Bcredi"
+    >
+      Política de Uso de Informações
+    </a>
+    .
+  </div>
+</div>
+`;

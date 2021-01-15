@@ -22,73 +22,66 @@ const rejectedCpfs = [
   "99999999999",
 ];
 
+function validateCpfFormat(cpf: string) {
+  if (cpf !== "") {
+    const match = cpf.match(/\d\d\d[.]\d\d\d[.]\d\d\d[-]\d\d$/);
+    const correctFormat = match !== null;
+    if (correctFormat) {
+      const stringOnlyNumbers = cpf.replace(/[.-]/g, "");
+      if (rejectedCpfs.includes(stringOnlyNumbers)) {
+        return "repetitive numbers";
+      } else {
+        const cpfNumbersArray = stringOnlyNumbers.split("").map((n) => +n);
+
+        const sumNumberFirstDigit = cpfNumbersArray
+          .slice(0, 9)
+          .map((n, index) => n * (10 - index))
+          .reduce((a, b) => a + b, 0);
+
+        const sumNumberSecondDigit = cpfNumbersArray
+          .slice(0, 10)
+          .map((n, index) => n * (11 - index))
+          .reduce((a, b) => a + b, 0);
+
+        var restDigitOne = (sumNumberFirstDigit * 10) % 11;
+        var restDigitTwo = (sumNumberSecondDigit * 10) % 11;
+
+        if (restDigitOne === 10 || restDigitOne === 11) {
+          restDigitOne = 0;
+        }
+        if (restDigitTwo === 10 || restDigitTwo === 11) {
+          restDigitTwo = 0;
+        }
+        if (
+          restDigitOne !== cpfNumbersArray[9] ||
+          restDigitTwo !== cpfNumbersArray[10]
+        ) {
+          return "rest does not match the digits";
+        } else {
+          return 1;
+        }
+      }
+    } else {
+      return "incorrect format";
+    }
+  } else {
+    return "empty cpf";
+  }
+}
+
 const CpfInput = ({ setEmpty, error, handleChange, value }: props) => {
   const [validCpf, setValidCpf] = useState(true);
 
-  function validateFormat(cpf: string): boolean {
-    const match = cpf.match(/\d\d\d[.]\d\d\d[.]\d\d\d[-]\d\d$/);
-    return match !== null;
-  }
-
   function validateCpf(cpf: string) {
-    setValidCpf(true);
-    if (cpf !== "") {
+    const cpfValidationStatus = validateCpfFormat(cpf);
+    if (cpfValidationStatus === 1) {
       setEmpty(false);
-      const correctFormat = validateFormat(cpf);
-
-      if (correctFormat) {
-        const onlyNumbers = cpf.replace(/[.-]/g, "");
-
-        console.log(onlyNumbers);
-
-        if (rejectedCpfs.includes(onlyNumbers)) {
-          return setValidCpf(false);
-        } else {
-          const cpfOnlyNumber = onlyNumbers.split("").map((n) => +n);
-
-          const sumNumberFirstDigit = cpfOnlyNumber
-            .slice(0, 9)
-            .map((n, index) => n * (10 - index))
-            .reduce((a, b) => a + b, 0);
-
-          const sumNumberSecondDigit = cpfOnlyNumber
-            .slice(0, 10)
-            .map((n, index) => n * (11 - index))
-            .reduce((a, b) => a + b, 0);
-
-          console.log(sumNumberFirstDigit); // PRINT
-          console.log(sumNumberSecondDigit); // PRINT
-
-          var restDigitOne = (sumNumberFirstDigit * 10) % 11;
-          var restDigitTwo = (sumNumberSecondDigit * 10) % 11;
-
-          if (restDigitOne === 10 || restDigitOne === 11) {
-            restDigitOne = 0;
-          }
-
-          if (restDigitTwo === 10 || restDigitTwo === 11) {
-            restDigitTwo = 0;
-          }
-
-          console.log(
-            "Rest1: " + restDigitOne + " Digit1: " + cpfOnlyNumber[9]
-          ); // PRINT
-          console.log(
-            "Rest2: " + restDigitTwo + " Digit2: " + cpfOnlyNumber[10]
-          ); // PRINT
-
-          if (
-            restDigitOne !== cpfOnlyNumber[9] &&
-            restDigitTwo !== cpfOnlyNumber[10]
-          ) {
-            return setValidCpf(false);
-          } else {
-            return setValidCpf(true);
-          }
-        }
-      } else {
-        return setValidCpf(false);
-      }
+      return setValidCpf(true);
+    } else if (cpfValidationStatus === "empty cpf") {
+      setValidCpf(true);
+    } else {
+      setEmpty(false);
+      return setValidCpf(false);
     }
   }
 
@@ -135,10 +128,10 @@ const CpfInput = ({ setEmpty, error, handleChange, value }: props) => {
 };
 
 const InputWrapper = styled.div`
-  position: relative;
   width: 148px;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @media (max-width: 600px) {
     width: 312px;
@@ -170,4 +163,4 @@ const StyledInputError = styled(InputError)`
   }
 `;
 
-export default CpfInput;
+export { CpfInput, validateCpfFormat, rejectedCpfs };

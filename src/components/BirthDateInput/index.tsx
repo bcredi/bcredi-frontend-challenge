@@ -9,63 +9,64 @@ interface props {
   value: string;
 }
 
-const BirthDateInput = ({ setEmpty, error, handleChange, value }: props) => {
-  const [validBirthDate, setValidBirthDate] = useState(true);
-
-  function validateFormat(date: string): boolean {
+function validateDateFormat(date: string) {
+  if (date !== "") {
     const match = date.match(
       /^([1-9]|0[1-9]|[12][0-9]|3[01])[/]([1-9]|0[1-9]|1[012])[/](19|20)\d\d$/
     );
-    return match !== null;
-  }
+    const correctFormat = match !== null;
 
-  function validateBirthDate(date: string) {
-    if (date !== "") {
-      setEmpty(false);
-      const correctFormat = validateFormat(date);
+    if (correctFormat) {
+      const currentYear = new Date().getFullYear();
+      const monthMaxDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      const [day, month, year] = date.split("/").map((s) => +s); // Conversão para int
 
-      console.log("Match? ", correctFormat); // PRINT
-
-      if (correctFormat) {
-        const currentYear = new Date().getFullYear();
-        const monthMaxDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        const [day, month, year] = date.split("/").map((s) => +s); // Conversão para int
-
-        if (year <= currentYear) {
-          // months - fev
-          if (month === 1 || month > 2) {
-            if (day > monthMaxDays[month - 1]) {
-              setValidBirthDate(false);
-              return;
-            } else {
-              setValidBirthDate(true);
-              return;
-            }
+      if (year <= currentYear) {
+        // months - fev
+        if (month === 1 || month > 2) {
+          if (day > monthMaxDays[month - 1]) {
+            return "day outside the month limits";
+          } else {
+            return 1;
           }
+        }
 
-          // fev
-          if (month === 2) {
-            const leapYear =
-              (!(year % 4) && year % 100) || (!(year % 400) as boolean);
-            if (!leapYear && day >= 29) {
-              setValidBirthDate(false);
-              return;
-            } else if (leapYear && day > 29) {
-              setValidBirthDate(false);
-              return;
-            } else {
-              setValidBirthDate(true);
-              return;
-            }
+        // fev
+        if (month === 2) {
+          const leapYear =
+            (!(year % 4) && year % 100) || (!(year % 400) as boolean);
+          if (!leapYear && day >= 29) {
+            return "day outside the limits of February - not a leap year";
+          } else if (leapYear && day > 29) {
+            return "day outside the limits of February - leap year";
+          } else {
+            return 1;
           }
-        } else {
-          setValidBirthDate(false);
-          return;
         }
       } else {
-        setValidBirthDate(false);
-        return;
+        return "year bigger than the current one";
       }
+    } else {
+      return "incorrect format";
+    }
+  } else {
+    return "empty date";
+  }
+}
+
+const BirthDateInput = ({ setEmpty, error, handleChange, value }: props) => {
+  const [validBirthDate, setValidBirthDate] = useState(true);
+
+  function validateDate(date: string) {
+    const dateValidationStatus = validateDateFormat(date);
+    if (dateValidationStatus === 1) {
+      setEmpty(false);
+      return setValidBirthDate(true);
+    } else if (dateValidationStatus === "empty date") {
+      setValidBirthDate(true);
+    } else {
+      setEmpty(false);
+      return setValidBirthDate(false);
     }
   }
 
@@ -86,7 +87,7 @@ const BirthDateInput = ({ setEmpty, error, handleChange, value }: props) => {
           );
           handleChange(e);
         }}
-        onBlur={(e) => validateBirthDate(e.target.value)}
+        onBlur={(e) => validateDate(e.target.value)}
         onInvalid={() => setEmpty(true)}
         style={{
           border: `1px solid ${
@@ -148,4 +149,4 @@ const StyledInputError = styled(InputError)`
   }
 `;
 
-export default BirthDateInput;
+export { BirthDateInput, validateDateFormat };

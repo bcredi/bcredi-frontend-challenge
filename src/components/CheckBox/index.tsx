@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ReactComponent as CheckSvg } from "../../assets/check-solid.svg";
 import { InputError } from "../../styles";
 
 interface props {
@@ -10,13 +11,12 @@ interface props {
 }
 
 const Checkbox = ({ setNotChecked, handleChange, error, value }: props) => {
-  function validateCheckBox(value: string) {
-    if (value !== "") {
+  function toggleCheck() {
+    if (!value) {
+      handleChange(true);
       setNotChecked(false);
-      if (value === "false") {
-        setNotChecked(true);
-      }
     } else {
+      handleChange(false);
       setNotChecked(true);
     }
   }
@@ -25,22 +25,17 @@ const Checkbox = ({ setNotChecked, handleChange, error, value }: props) => {
     <InputWrapper
       style={{
         border: `1px solid ${
-          !error ? "var(--base-color-border)" : "var(--base-color-error)"
+          error ? "var(--base-color-error)" : "var(--base-color-border)"
         }`,
       }}
     >
-      <input
-        required
-        width="320px"
-        className="checkbox-input"
-        name="readCheck"
-        type="checkbox"
-        value={value.toString()}
-        onChange={() => handleChange(!value)}
-        onBlur={(e) => validateCheckBox(e.target.value)}
-        onInvalid={() => setNotChecked(true)}
-      />
-      <span className="register__checkbox-label">
+      <FakeCheckBox
+        style={{ backgroundColor: value ? "var(--base-color-link)" : "" }}
+        onClick={toggleCheck}
+      >
+        {value && <CheckIcon />}
+      </FakeCheckBox>
+      <InputInfo>
         Li e estou de acordo com a{" "}
         <a href="/privacy-policy" title="Política de privacidade - Bcredi">
           Política de Privacidade
@@ -50,7 +45,7 @@ const Checkbox = ({ setNotChecked, handleChange, error, value }: props) => {
           Política de Uso de Informações
         </a>
         .
-      </span>
+      </InputInfo>
       {error && (
         <StyledInputError>Por favor confirme os termos de uso</StyledInputError>
       )}
@@ -58,10 +53,38 @@ const Checkbox = ({ setNotChecked, handleChange, error, value }: props) => {
   );
 };
 
+const FakeCheckBox = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--base-color-link);
+  border-radius: 4px;
+  cursor: pointer;
+`;
+
 const StyledInputError = styled(InputError)`
   top: 60px;
   @media (max-width: 600px) {
     top: 97px;
+  }
+`;
+
+const InputInfo = styled.div`
+  width: 267px;
+  margin: 7px 5px 9px 12px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--base-color-pinkish-grey);
+
+  > a {
+    color: var(--base-color-link);
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    width: 230px;
   }
 `;
 
@@ -79,34 +102,23 @@ const InputWrapper = styled.div`
   position: relative;
   margin-top: 36px;
 
-  .checkbox-input {
+  > input {
     width: 24px;
     height: 24px;
     border-radius: 4px;
     cursor: pointer;
   }
 
-  .register__checkbox-label {
-    width: 267px;
-    margin: 7px 5px 9px 12px;
-    font-size: 12px;
-    line-height: 20px;
-    color: var(--base-color-pinkish-grey);
-
-    @media (max-width: 600px) {
-      width: 230px;
-    }
-  }
-
-  .register__checkbox-label > a {
-    color: #4c8afe;
-    text-decoration: none;
-  }
-
   @media (max-width: 600px) {
     width: 312px;
     height: 92px;
   }
+`;
+
+const CheckIcon = styled(CheckSvg)`
+  width: 9.7px;
+  height: 7.1px;
+  color: var(--base-color-white);
 `;
 
 export default Checkbox;

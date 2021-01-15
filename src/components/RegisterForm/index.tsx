@@ -1,121 +1,71 @@
-import React, { FormEvent, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import React, { FormEvent, ReactNode } from "react";
+import { ReactComponent as LockSvg } from "../../assets/lock-solid.svg";
 import styled from "styled-components";
-import EmailInput from "../EmailInput";
-import Checkbox from "../CheckBox";
-import BirthDateInput from "../BirthDateInput";
-import CpfInput from "../CpfInput";
-import PasswordInput from "../PasswordInput";
-/* import bcrypt from "bcryptjs"; */
-
-interface User {
-  email: string;
-  cpf: string;
-  birthDate: string;
-  password: string;
-}
+import { User, InputError } from "../../pages/Register/types";
 
 interface props {
+  formTitle: string;
+  formDescription: string;
   handleSubmit: () => void;
+  children?: ReactNode;
+  footer?: ReactNode;
+  setData: React.Dispatch<React.SetStateAction<User>>;
+  data: User;
+  setFormErrors: React.Dispatch<React.SetStateAction<InputError>>;
+  formErrors: InputError;
+  readCheck: boolean;
 }
 
-const RegisterFormContainer = ({ handleSubmit }: props) => {
-  // Estados de controle
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Dados obtidos através dos inputs
-  const [userData, setUserData] = useState<User>({} as User);
-  const [readCheck, setReadCheck] = useState(false);
-
-  // Error flags
-  const [emailError, setEmailError] = useState(false);
-  const [cpfError, setCpfError] = useState(false);
-  const [birthDateError, setBirthDateError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [readCheckError, setReadCheckError] = useState(false);
-
+const RegisterFormContainer = ({
+  formTitle,
+  formDescription,
+  handleSubmit,
+  children,
+  footer,
+  readCheck,
+  formErrors,
+  setFormErrors,
+  setData,
+  data,
+}: props) => {
   function resetForm() {
-    setUserData({ email: "", cpf: "", birthDate: "", password: "" });
+    setData({} as User);
+    setFormErrors({} as InputError);
   }
 
-  console.log("USER DATA: ", userData); // PRINT
+  console.log("USER DATA: ", data); // PRINT
   console.log("Aceito os termos: ", readCheck); // PRINT
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    /* userData.password = bcrypt.hashSync(userData.password, 10); */
-    if (!userData.email || userData.email === "") {
-      setEmailError(true);
-    } else if (!userData.cpf || userData.cpf === "") {
-      setCpfError(true);
-    } else if (!userData.birthDate || userData.birthDate === "") {
-      setBirthDateError(true);
-    } else if (!userData.password || userData.password === "") {
-      setPasswordError(true);
+    if (!data.email || data.email === "") {
+      setFormErrors({ ...formErrors, emailError: true });
+    } else if (!data.cpf || data.cpf === "") {
+      setFormErrors({ ...formErrors, cpfError: true });
+    } else if (!data.birthDate || data.birthDate === "") {
+      setFormErrors({ ...formErrors, birthDateError: true });
+    } else if (!data.password || data.password === "") {
+      setFormErrors({ ...formErrors, passwordError: true });
     } else if (!readCheck) {
-      setReadCheckError(true);
+      setFormErrors({ ...formErrors, readCheckError: true });
     } else {
       handleSubmit();
       resetForm();
     }
   };
 
-  const handleChange = (Event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = Event.target;
-    setUserData({ ...userData, [name]: value });
-  };
-
   return (
     <RegisterFormWrapper>
-      <FormTitle>Criar meu cadastro</FormTitle>
-      <FormText>
-        Para acompanhar sua contratação de crédito você utilizará seu e-mail e
-        CPF.
-      </FormText>
+      <FormTitle>{formTitle}</FormTitle>
+      <FormText>{formDescription}</FormText>
       <Form name="register" onSubmit={onSubmit}>
-        <EmailInput
-          setEmpty={setEmailError}
-          handleChange={handleChange}
-          error={emailError}
-          value={userData.email}
-        />
-        <FlexGroup>
-          <CpfInput
-            setEmpty={setCpfError}
-            error={cpfError}
-            handleChange={handleChange}
-            value={userData.cpf}
-          />
-          <BirthDateInput
-            setEmpty={setBirthDateError}
-            error={birthDateError}
-            handleChange={handleChange}
-            value={userData.birthDate && userData.birthDate.toString()}
-          />
-        </FlexGroup>
-        <PasswordInput
-          setEmpty={setPasswordError}
-          handleChange={handleChange}
-          error={passwordError}
-          value={userData.password}
-        />
-        <Checkbox
-          setNotChecked={setReadCheckError}
-          handleChange={setReadCheck}
-          error={readCheckError}
-          value={readCheck}
-        />
-        <ActionButton type="submit" className="register-button">
-          <LockIcon icon={faLock} />
+        {children}
+        <ActionButton type="submit">
+          <LockIcon />
           <p>Cadastrar</p>
         </ActionButton>
       </Form>
-      <FormFooter>
-        <p>
-          Já fiz o meu cadastro. <a href="/login">Entrar agora.</a>
-        </p>
-      </FormFooter>
+      <FormFooter>{footer}</FormFooter>
     </RegisterFormWrapper>
   );
 };
@@ -199,19 +149,6 @@ const Form = styled.form`
   padding-top: 23px;
 `;
 
-const FlexGroup = styled.div`
-  width: 320px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 30px;
-
-  @media (max-width: 600px) {
-    width: 312px;
-    flex-direction: column;
-  }
-`;
-
 const ActionButton = styled.button`
   display: flex;
   justify-content: center;
@@ -253,7 +190,7 @@ const ActionButton = styled.button`
   }
 `;
 
-const LockIcon = styled(FontAwesomeIcon)`
+const LockIcon = styled(LockSvg)`
   width: 10px;
   height: 12.3px;
   position: relative;

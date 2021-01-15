@@ -11,6 +11,18 @@ interface props {
   value: string;
 }
 
+function validatePasswordFormat (password: string) {
+  if( password !== "") {
+    if(password.length >= 8){
+      return 1;
+    } else {
+      return "incorrect format";
+    }
+  } else {
+    return "empty password";
+  }
+}
+
 const PasswordInput = ({ setEmpty, error, handleChange, value }: props) => {
   const [validPassword, setValidPassword] = useState(true);
   const [visible, toggleVisible] = useState(false);
@@ -29,7 +41,7 @@ const PasswordInput = ({ setEmpty, error, handleChange, value }: props) => {
   }
 
   return (
-    <StyledInputWrapper>
+    <InputWrapper>
       <InputLabel>Senha</InputLabel>
       <Input
         required
@@ -68,16 +80,16 @@ const PasswordInput = ({ setEmpty, error, handleChange, value }: props) => {
           ? "O campo senha é obrigatório"
           : null}
       </InputError>
-    </StyledInputWrapper>
+    </InputWrapper>
   );
 };
 
-const StyledInputWrapper = styled(InputWrapper)`
+/* const StyledInputWrapper = styled(InputWrapper)`
   input[type="password"]::-ms-reveal,
   input[type="password"]::-ms-clear {
     display: none;
   }
-`;
+`; */
 
 const InputLabel = styled.label`
   width: 148px;
@@ -115,4 +127,4 @@ const EyeSlashIcon = styled(EyeSlashSvg)`
   }
 `;
 
-export default PasswordInput;
+export { PasswordInput, validatePasswordFormat } ;

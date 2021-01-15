@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catches DOM unexpected changes 1`] = `
+<div
+  className="sc-eCssSg sc-jrAGrp jhDcFB kLrRrm"
+>
+  <label
+    className="sc-iqHYGH fIrSEl"
+  >
+    E-mail
+  </label>
+  <input
+    className="sc-jSgupP jHzLmv"
+    maxLength={60}
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onInvalid={[Function]}
+    placeholder="teste@teste.com"
+    required={true}
+    style={
+      Object {
+        "border": "1px solid var(--base-color-border)",
+        "color": "var(--base-color-text)",
+      }
+    }
+    type="text"
+    value=""
+  />
+  <div
+    className="sc-gKsewC dGAaCy"
+  />
+</div>
+`;
