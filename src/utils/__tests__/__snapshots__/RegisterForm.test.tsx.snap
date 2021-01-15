@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RegisterPage /> Checks if the component is correctly rendered 1`] = `
+<div
+  className="sc-iBPRYJ dhIWtH"
+>
+  <div
+    className="sc-eCssSg kndXy form-title"
+  >
+    Test
+  </div>
+  <div
+    className="sc-jSgupP gNUGqr form-description"
+  >
+    Test description
+  </div>
+  <form
+    className="sc-fubCfw iNVubo"
+    name="register"
+    onSubmit={[Function]}
+  >
+    <button
+      className="sc-dlfnbm cXRuMu"
+      type="submit"
+    >
+      <svg
+        className="sc-hKgILt gDcxHx"
+      >
+        lock-solid.svg
+      </svg>
+      <p>
+        Cadastrar
+      </p>
+    </button>
+  </form>
+  <div
+    className="sc-gKsewC jzxsty form-footer"
+  />
+</div>
+`;
+
+exports[`Checks if the component is correctly rendered 1`] = `
+<div
+  className="sc-iBPRYJ dhIWtH"
+>
+  <div
+    className="sc-eCssSg kndXy form-title"
+  >
+    Test
+  </div>
+  <div
+    className="sc-jSgupP gNUGqr form-description"
+  >
+    Test description
+  </div>
+  <form
+    className="sc-fubCfw iNVubo"
+    name="register"
+    onSubmit={[Function]}
+  >
+    <button
+      className="sc-dlfnbm cXRuMu"
+      type="submit"
+    >
+      <svg
+        className="sc-hKgILt gDcxHx"
+      >
+        lock-solid.svg
+      </svg>
+      <p>
+        Cadastrar
+      </p>
+    </button>
+  </form>
+  <div
+    className="sc-gKsewC jzxsty form-footer"
+  />
+</div>
+`;

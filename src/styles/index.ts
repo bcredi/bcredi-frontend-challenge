@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-// Common styles
-
 export const PageWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -15,6 +13,7 @@ export const RegisterWapper = styled.div`
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  overflow-y:auto;
 
   .visible {
     visibility: visible !important;
@@ -102,6 +101,10 @@ export const Header = styled.div`
     width: 100vw;
     height: 64px;
     border-bottom: 1px solid #e6e6e6;
+    
+    position: fixed;
+    z-index: 80;
+    background-color: var(--base-color-white);
 
     .logo {
       margin: 20px 32px;

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hero /> Checks if the component is correctly rendered 1`] = `
+<div
+  className="sc-bdfBwQ evpleA hero"
+>
+  <div
+    className="sc-gsTCUz mLZhx hero-content"
+  >
+    <p>
+      Test
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Checks if the component is correctly rendered 1`] = `
+<div
+  className="sc-bdfBwQ evpleA hero"
+>
+  <div
+    className="sc-gsTCUz mLZhx hero-content"
+  >
+    <p>
+      Test
+    </p>
+  </div>
+</div>
+`;

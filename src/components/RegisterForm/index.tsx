@@ -1,7 +1,7 @@
 import React, { FormEvent, ReactNode } from "react";
-import { ReactComponent as LockSvg } from "../../assets/lock-solid.svg";
 import styled from "styled-components";
 import { User, InputError } from "../../pages/Register/types";
+import ActionButton from "../ActionButton";
 
 interface props {
   formTitle: string;
@@ -29,12 +29,15 @@ const RegisterFormContainer = ({
   data,
 }: props) => {
   function resetForm() {
-    setData({} as User);
-    setFormErrors({} as InputError);
+    setData({ email: "", cpf: "", birthDate: "", password: "" });
+    setFormErrors({
+      birthDateError: false,
+      cpfError: false,
+      emailError: false,
+      passwordError: false,
+      readCheckError: false,
+    });
   }
-
-  console.log("USER DATA: ", data); // PRINT
-  console.log("Aceito os termos: ", readCheck); // PRINT
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -56,16 +59,13 @@ const RegisterFormContainer = ({
 
   return (
     <RegisterFormWrapper>
-      <FormTitle>{formTitle}</FormTitle>
-      <FormText>{formDescription}</FormText>
+      <FormTitle className="form-title">{formTitle}</FormTitle>
+      <FormText className="form-description">{formDescription}</FormText>
       <Form name="register" onSubmit={onSubmit}>
         {children}
-        <ActionButton type="submit">
-          <LockIcon />
-          <p>Cadastrar</p>
-        </ActionButton>
+        <ActionButton text="Cadastrar" type="submit" />
       </Form>
-      <FormFooter>{footer}</FormFooter>
+      <FormFooter className="form-footer">{footer}</FormFooter>
     </RegisterFormWrapper>
   );
 };
@@ -130,12 +130,12 @@ const RegisterFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 38px;
+  margin-top: 36px;
   margin-bottom: 40px;
 
   @media (max-width: 600px) {
     width: 312px;
-    margin-top: 84px;
+    margin-top: 148px;
     margin-bottom: 32px;
   }
 `;
@@ -147,54 +147,6 @@ const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   padding-top: 23px;
-`;
-
-const ActionButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 320px;
-  height: 48px;
-  background-color: var(--base-color-link);
-  border: none;
-  border-radius: 3px;
-  padding: 14px 10px;
-  color: var(--base-color-white);
-  cursor: pointer;
-  margin-top: 48px;
-  margin-bottom: auto;
-  position: relative;
-  transition: all ease-out 0.1s;
-
-  &:hover {
-    background-color: var(--base-color-link-hover);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  &: focus {
-    outline: 0;
-  }
-
-  > svg {
-    position: absolute !important;
-  }
-
-  > p {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  @media (max-width: 600px) {
-    width: 312px;
-  }
-`;
-
-const LockIcon = styled(LockSvg)`
-  width: 10px;
-  height: 12.3px;
-  position: relative;
-  left: 31px;
 `;
 
 export default RegisterFormContainer;

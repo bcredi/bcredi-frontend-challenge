@@ -83,6 +83,7 @@ const TextField = ({
       </InputLabel>
       <Input
         required
+        className="form-input"
         type={name === "password" ? (visible ? "text" : "password") : "text"}
         placeholder={placeholder}
         name={name}

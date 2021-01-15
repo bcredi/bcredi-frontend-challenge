@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import Hero from "../../components/Hero";
 import RegisterForm from "../../components/RegisterForm";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import heroImage from "../../assets/rawpixel-411166-unsplash@2x.png";
-import { HeroQuote, HeroAuthorInfo, PageWrapper, RegisterWapper, SuccessBar, Header, FlexGroup } from "../../styles";
+import {
+  HeroQuote,
+  HeroAuthorInfo,
+  PageWrapper,
+  RegisterWapper,
+  SuccessBar,
+  Header,
+  FlexGroup,
+} from "../../styles";
 import TextField from "../../components/TextField";
 import { User, InputError } from "./types";
 import Checkbox from "../../components/CheckBox";
@@ -126,13 +133,13 @@ export function validateDateFormat(date: string) {
       return "incorrect format";
     }
   } else {
-    return "empty date";
+    return "empty birthDate";
   }
 }
 
-export function validatePasswordFormat (password: string) {
-  if( password !== "") {
-    if(password.length >= 8){
+export function validatePasswordFormat(password: string) {
+  if (password !== "") {
+    if (password.length >= 8) {
       return 1;
     } else {
       return "incorrect format";
@@ -159,7 +166,7 @@ const Register = () => {
   const [readCheckError, setReadCheckError] = useState(false);
 
   useEffect(() => {
-    if(formErrors.emailError){
+    if (formErrors.emailError) {
       setEmailError(true);
     } else if (formErrors.cpfError) {
       setCpfError(true);
@@ -170,9 +177,10 @@ const Register = () => {
     } else if (formErrors.readCheckError) {
       setReadCheckError(true);
     }
-  }, [formErrors])
+  }, [formErrors]);
 
   const handleRegisterSuccess = () => {
+    console.log(userData);
     setRegistered(true);
     setTimeout(() => setRegistered(false), 3000);
   };
@@ -184,7 +192,7 @@ const Register = () => {
 
   return (
     <PageWrapper>
-      <Hero image={heroImage}>
+      <Hero>
         <HeroQuote>
           Obtive crédito para capital de giro. O processo foi bem sucedido e
           tudo que foi abordado, foi cumprido.

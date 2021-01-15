@@ -1,42 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checks if the component is correctly rendered 1`] = `
+exports[`<RegisterPage /> Catches DOM unexpected changes 1`] = `
 <div
-  className="sc-fubCfw kdOtdE"
+  className="sc-pFZIQ jtlbdX"
 >
   <div
-    className="sc-iwyYcG ehulxO"
+    className="sc-bdfBwQ evpleA hero"
   >
     <div
-      className="sc-bdfBwQ eCgAqB"
+      className="sc-gsTCUz mLZhx hero-content"
     >
       <p
-        className="sc-bqyKva eERNPF"
+        className="sc-kstrdz gCBMtz"
       >
         Obtive crédito para capital de giro. O processo foi bem sucedido e tudo que foi abordado, foi cumprido.
       </p>
       <p
-        className="sc-kstrdz bdYFic"
+        className="sc-hBEYos fdDYga"
       >
         Camila Bragança,
       </p>
       <p
-        className="sc-kstrdz bdYFic"
+        className="sc-hBEYos fdDYga"
       >
         Sideral Tecnologia
       </p>
     </div>
   </div>
   <div
-    className="sc-pFZIQ ktQqdk"
+    className="sc-jrAGrp jwUTrQ"
   >
     <div
-      className="sc-jrAGrp ivFtxa"
+      className="sc-kEjbxe kmGfRV"
     >
       Parabéns! Cadastro realizado com sucesso!
     </div>
     <div
-      className="sc-kEjbxe jtpAVm"
+      className="sc-iqHYGH hzznJz"
     >
       <svg
         className="logo"
@@ -45,33 +45,33 @@ exports[`Checks if the component is correctly rendered 1`] = `
       </svg>
     </div>
     <div
-      className="sc-eCssSg fYyVrr"
+      className="sc-iBPRYJ dhIWtH"
     >
       <div
-        className="sc-gsTCUz eiJECs"
+        className="sc-eCssSg kndXy form-title"
       >
         Criar meu cadastro
       </div>
       <div
-        className="sc-dlfnbm gnQMrH"
+        className="sc-jSgupP gNUGqr form-description"
       >
         Para acompanhar sua contratação de crédito você utilizará seu e-mail e CPF.
       </div>
       <form
-        className="sc-jSgupP giojUI"
+        className="sc-fubCfw iNVubo"
         name="register"
         onSubmit={[Function]}
       >
         <div
-          className="sc-iqHYGH sc-fodVxV jYtvol kzFHmz"
+          className="sc-crrsfI sc-fFubgz hsOpRE jEJwjY"
         >
           <label
-            className="sc-bkzZxe drOPsz"
+            className="sc-idOhPF fnPmEb"
           >
             E-mail
           </label>
           <input
-            className="sc-crrsfI fbzJqX"
+            className="sc-dQppl gCJdXJ form-input"
             maxLength={60}
             name="email"
             onBlur={[Function]}
@@ -88,22 +88,22 @@ exports[`Checks if the component is correctly rendered 1`] = `
             type="text"
           />
           <div
-            className="sc-dQppl jgAhXB"
+            className="sc-bqyKva bWdBcy"
           />
         </div>
         <div
-          className="sc-hBEYos hUjBeT"
+          className="sc-fodVxV dZDVoQ"
         >
           <div
-            className="sc-iqHYGH sc-fFubgz jYtvol gPLVfs"
+            className="sc-crrsfI sc-bkzZxe hsOpRE cJqvyO"
           >
             <label
-              className="sc-bkzZxe drOPsz"
+              className="sc-idOhPF fnPmEb"
             >
               CPF
             </label>
             <input
-              className="sc-crrsfI fbzJqX"
+              className="sc-dQppl gCJdXJ form-input"
               maxLength={14}
               name="cpf"
               onBlur={[Function]}
@@ -120,19 +120,19 @@ exports[`Checks if the component is correctly rendered 1`] = `
               type="text"
             />
             <div
-              className="sc-dQppl jgAhXB"
+              className="sc-bqyKva bWdBcy"
             />
           </div>
           <div
-            className="sc-iqHYGH sc-fFubgz jYtvol gPLVfs"
+            className="sc-crrsfI sc-bkzZxe hsOpRE cJqvyO"
           >
             <label
-              className="sc-bkzZxe drOPsz"
+              className="sc-idOhPF fnPmEb"
             >
               Data de nascimento
             </label>
             <input
-              className="sc-crrsfI fbzJqX"
+              className="sc-dQppl gCJdXJ form-input"
               maxLength={10}
               name="birthDate"
               onBlur={[Function]}
@@ -149,20 +149,20 @@ exports[`Checks if the component is correctly rendered 1`] = `
               type="text"
             />
             <div
-              className="sc-dQppl jgAhXB"
+              className="sc-bqyKva bWdBcy"
             />
           </div>
         </div>
         <div
-          className="sc-iqHYGH jYtvol"
+          className="sc-crrsfI hsOpRE"
         >
           <label
-            className="sc-bkzZxe drOPsz"
+            className="sc-idOhPF fnPmEb"
           >
             Senha
           </label>
           <input
-            className="sc-crrsfI fbzJqX"
+            className="sc-dQppl gCJdXJ form-input"
             maxLength={60}
             minLength={8}
             name="password"
@@ -180,17 +180,17 @@ exports[`Checks if the component is correctly rendered 1`] = `
             type="password"
           />
           <svg
-            className="sc-idOhPF celsMQ"
+            className="sc-dIUggk hfNyan"
             onClick={[Function]}
           >
             eye-solid.svg
           </svg>
           <div
-            className="sc-dQppl jgAhXB"
+            className="sc-bqyKva bWdBcy"
           />
         </div>
         <div
-          className="sc-fKFyDc dTkuAY"
+          className="sc-bBXqnf eZegzA"
           style={
             Object {
               "border": "1px solid var(--base-color-border)",
@@ -198,7 +198,7 @@ exports[`Checks if the component is correctly rendered 1`] = `
           }
         >
           <div
-            className="sc-hHftDr kixkbK"
+            className="sc-dmlrTW caJbYW"
             onClick={[Function]}
             style={
               Object {
@@ -207,7 +207,7 @@ exports[`Checks if the component is correctly rendered 1`] = `
             }
           />
           <div
-            className="sc-kfzAmx ksRRvs"
+            className="sc-fKFyDc eLdyBu"
           >
             Li e estou de acordo com a
              
@@ -230,11 +230,11 @@ exports[`Checks if the component is correctly rendered 1`] = `
           </div>
         </div>
         <button
-          className="sc-gKsewC kOxlVr"
+          className="sc-dlfnbm cXRuMu"
           type="submit"
         >
           <svg
-            className="sc-iBPRYJ iBItGe"
+            className="sc-hKgILt gDcxHx"
           >
             lock-solid.svg
           </svg>
@@ -244,7 +244,267 @@ exports[`Checks if the component is correctly rendered 1`] = `
         </button>
       </form>
       <div
-        className="sc-hKgILt cxvhoh"
+        className="sc-gKsewC jzxsty form-footer"
+      >
+        <p>
+          Já fiz o meu cadastro. 
+          <a
+            href="/login"
+          >
+            Entrar agora.
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Checks if the component is correctly rendered 1`] = `
+<div
+  className="sc-pFZIQ jtlbdX"
+>
+  <div
+    className="sc-bdfBwQ evpleA hero"
+  >
+    <div
+      className="sc-gsTCUz mLZhx hero-content"
+    >
+      <p
+        className="sc-kstrdz gCBMtz"
+      >
+        Obtive crédito para capital de giro. O processo foi bem sucedido e tudo que foi abordado, foi cumprido.
+      </p>
+      <p
+        className="sc-hBEYos fdDYga"
+      >
+        Camila Bragança,
+      </p>
+      <p
+        className="sc-hBEYos fdDYga"
+      >
+        Sideral Tecnologia
+      </p>
+    </div>
+  </div>
+  <div
+    className="sc-jrAGrp jwUTrQ"
+  >
+    <div
+      className="sc-kEjbxe kmGfRV"
+    >
+      Parabéns! Cadastro realizado com sucesso!
+    </div>
+    <div
+      className="sc-iqHYGH hzznJz"
+    >
+      <svg
+        className="logo"
+      >
+        logo.svg
+      </svg>
+    </div>
+    <div
+      className="sc-iBPRYJ dhIWtH"
+    >
+      <div
+        className="sc-eCssSg kndXy form-title"
+      >
+        Criar meu cadastro
+      </div>
+      <div
+        className="sc-jSgupP gNUGqr form-description"
+      >
+        Para acompanhar sua contratação de crédito você utilizará seu e-mail e CPF.
+      </div>
+      <form
+        className="sc-fubCfw iNVubo"
+        name="register"
+        onSubmit={[Function]}
+      >
+        <div
+          className="sc-crrsfI sc-fFubgz hsOpRE jEJwjY"
+        >
+          <label
+            className="sc-idOhPF fnPmEb"
+          >
+            E-mail
+          </label>
+          <input
+            className="sc-dQppl gCJdXJ form-input"
+            maxLength={60}
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onInvalid={[Function]}
+            placeholder="ana.maria@email.com"
+            required={true}
+            style={
+              Object {
+                "border": "1px solid var(--base-color-border)",
+                "color": "var(--base-color-text)",
+              }
+            }
+            type="text"
+          />
+          <div
+            className="sc-bqyKva bWdBcy"
+          />
+        </div>
+        <div
+          className="sc-fodVxV dZDVoQ"
+        >
+          <div
+            className="sc-crrsfI sc-bkzZxe hsOpRE cJqvyO"
+          >
+            <label
+              className="sc-idOhPF fnPmEb"
+            >
+              CPF
+            </label>
+            <input
+              className="sc-dQppl gCJdXJ form-input"
+              maxLength={14}
+              name="cpf"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onInvalid={[Function]}
+              placeholder="000.000.000-00"
+              required={true}
+              style={
+                Object {
+                  "border": "1px solid var(--base-color-border)",
+                  "color": "var(--base-color-text)",
+                }
+              }
+              type="text"
+            />
+            <div
+              className="sc-bqyKva bWdBcy"
+            />
+          </div>
+          <div
+            className="sc-crrsfI sc-bkzZxe hsOpRE cJqvyO"
+          >
+            <label
+              className="sc-idOhPF fnPmEb"
+            >
+              Data de nascimento
+            </label>
+            <input
+              className="sc-dQppl gCJdXJ form-input"
+              maxLength={10}
+              name="birthDate"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onInvalid={[Function]}
+              placeholder="DD/MM/AAAA"
+              required={true}
+              style={
+                Object {
+                  "border": "1px solid var(--base-color-border)",
+                  "color": "var(--base-color-text)",
+                }
+              }
+              type="text"
+            />
+            <div
+              className="sc-bqyKva bWdBcy"
+            />
+          </div>
+        </div>
+        <div
+          className="sc-crrsfI hsOpRE"
+        >
+          <label
+            className="sc-idOhPF fnPmEb"
+          >
+            Senha
+          </label>
+          <input
+            className="sc-dQppl gCJdXJ form-input"
+            maxLength={60}
+            minLength={8}
+            name="password"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onInvalid={[Function]}
+            placeholder="Cadastre uma senha"
+            required={true}
+            style={
+              Object {
+                "border": "1px solid var(--base-color-border)",
+                "color": "var(--base-color-text)",
+              }
+            }
+            type="password"
+          />
+          <svg
+            className="sc-dIUggk hfNyan"
+            onClick={[Function]}
+          >
+            eye-solid.svg
+          </svg>
+          <div
+            className="sc-bqyKva bWdBcy"
+          />
+        </div>
+        <div
+          className="sc-bBXqnf eZegzA"
+          style={
+            Object {
+              "border": "1px solid var(--base-color-border)",
+            }
+          }
+        >
+          <div
+            className="sc-dmlrTW caJbYW"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "",
+              }
+            }
+          />
+          <div
+            className="sc-fKFyDc eLdyBu"
+          >
+            Li e estou de acordo com a
+             
+            <a
+              href="/privacy-policy"
+              title="Política de privacidade - Bcredi"
+            >
+              Política de Privacidade
+            </a>
+             
+            e a
+             
+            <a
+              href="/use-policy"
+              title="Política de uso - Bcredi"
+            >
+              Política de Uso de Informações
+            </a>
+            .
+          </div>
+        </div>
+        <button
+          className="sc-dlfnbm cXRuMu"
+          type="submit"
+        >
+          <svg
+            className="sc-hKgILt gDcxHx"
+          >
+            lock-solid.svg
+          </svg>
+          <p>
+            Cadastrar
+          </p>
+        </button>
+      </form>
+      <div
+        className="sc-gKsewC jzxsty form-footer"
       >
         <p>
           Já fiz o meu cadastro. 

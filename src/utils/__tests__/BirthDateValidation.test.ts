@@ -38,5 +38,7 @@ test("Checks if a birth day date string is valid", () => {
   );
   expect(validateDateFormat("40/12/2000")).toBe("incorrect format");
   expect(validateDateFormat("12/13/2000")).toBe("incorrect format");
-  expect(validateDateFormat("")).toBe("empty date");
+
+  // empty birthDate
+  expect(validateDateFormat("")).toBe("empty birthDate");
 });

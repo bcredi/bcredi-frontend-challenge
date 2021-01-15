@@ -13,4 +13,4 @@ type InputError = {
   readCheckError: boolean;
 }
 
-export {User, InputError}
+export {User, InputError};

@@ -1,46 +1,201 @@
-# Getting Started with Create React App
+<img src="src\assets\logo.svg" alt="logo" align="right">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bcredi Frontend Challenge &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-## Available Scripts
+> Registry page - Bcredi Front-End Challenge
 
-In the project directory, you can run:
+This project aims to implement a registration interface as part of the selection process for the Front-End Developer vacancy.
 
-### `yarn start`
+The page allows the user to enter an email, CPF, date of birth and password to simulate the registration. All inputs go through a validation process so that they can be submitted using the form. Passwords with less than 8 digits will be rejected, so as date of birth on years bigger than the current one. Input data is only submitted once the user checks the privacy license agreement box.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After submittion, a message confirms the registration and the data is displayed on the console.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The project was developed using [React JS](https://pt-br.reactjs.org/) and deployed using [Firebase](https://firebase.google.com/). Besides React and Firebase, other technologies were employed, such as: [TypeScript](https://www.typescriptlang.org/), [Styled Components](https://styled-components.com/), [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/projects/enzyme/).
+## [Bcredi Register - Demo](https://bcredi-register.web.app)
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting started
 
-### `yarn build`
+Installing the necessary dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ yarn install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Runnig the application:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ yarn start
+```
 
-### `yarn eject`
+The following message will appear:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+Compiled successfully!
+Compiled successfully!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can now view bcredi-frontend-challenge in the browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.1.2:3000
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+```
 
-## Learn More
+If the development environment does not open automatically in your default browser, you can access it by typing the local environment, which was provided in the previous message, in your browser's navigation bar:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+http://localhost:3000
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Developing
+
+### Built With
+
+- React (16.8.0)
+- Styled Components (5.2.1)
+- Typescript (4.0.3)
+
+### Tested With
+
+- TS-Jest (26.4.1)
+- Enzyme (3.11.0)
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+
+### Setting up Development
+
+To start developing the project:
+
+```bash
+# Clone the repository
+$ git clone git@github.com:ozielalves/bcredi-frontend-challenge.git
+
+# Go to repository root
+$ cd bcredi-frontend-challenge/
+
+# Switch to the branch the project was developed
+$ git checkout Oziel
+
+# Install dependencies
+$ yarn install
+
+# Starts a development environment
+$ yarn start
+```
+
+Runs the application on localhost: 3000.
+
+### Deploying
+
+After completing the development process, it is possible to deploy the application using any hosting service available. This project was deployed using Firebase.
+
+Inatalling Firebase:
+
+```bash
+$ npm install -g firebase-tools
+```
+
+Login into your firebase account using a google account.
+```bash
+$ firebase login
+```
+Deploy:
+
+```bash
+$ firebase deploy --only hosting -m "Deploying the most stable version"
+```
+For more information see documentation
+- [Firebase CLI](https://firebase.google.com/docs/cli?hl=pt-br#windows-npm)
+- [Firebase Host](https://firebase.google.com/docs/hosting/quickstart)
+
+### Folder Structure
+
+```bash
+bcredi-frontend-challenge
+├───.firebaserc
+├───.gitignore
+├───firebase.json
+├───package.json
+├───README.md
+├───tsconfig.json
+├───yarn.lock
+├───build
+├───node_modules
+├───public
+└───src
+    ├───assets
+    ├───components
+    │   ├───ActionButton
+    │   │   └───index.tsx
+    │   ├───BirthDateInput
+    │   │   └───index.tsx
+    │   ├───CheckBox
+    │   │   └───index.tsx
+    │   ├───CpfInput
+    │   │   └───index.tsx
+    │   ├───EmailInput
+    │   │   └───index.tsx
+    │   ├───Hero
+    │   │   └───index.tsx
+    │   ├───PasswordInput
+    │   │   └───index.tsx
+    │   ├───RegisterForm
+    │   │   └───index.tsx
+    │   └───TextField
+    │       └───index.tsx
+    ├───pages
+    │   └───Register
+    │       ├───index.tsx
+    │       └───types.d.ts
+    ├───styles
+    │       └───index.ts
+    ├───utils
+    │    └───__tests__
+    │       ├───__snapshots__
+    │       ├───BirthDateValidation.test.ts
+    │       ├───Checkbox.test.tsx
+    │       ├───CpfValidation.test.ts
+    │       ├───EmailValidation.test.ts
+    │       ├───Hero.test.tsx
+    │       ├───PasswordValidation.test.ts
+    │       ├───RegisterForm.test.tsx
+    │       ├───RegisterPage.test.tsx
+    │       └───TextField.test.tsx
+    ├───App.tsx
+    ├───index.css
+    ├───index.tsx
+    ├───react-app-end.d.ts
+    ├───reportWebVitals.ts
+    └───setupTests.ts
+```
+
+## Tests 
+
+### Setup
+
+```
+
+Adapter (setupTests.js)
+
+```bash
+import "@testing-library/jest-dom/extend-expect";
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
+```
+###  Running tests
+
+```bash
+$ yarn test
+```
+## Style guide
+
+- [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) - Don't repeat yourself

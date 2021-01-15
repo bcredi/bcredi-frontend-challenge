@@ -1,17 +1,22 @@
+
 import React from "react";
 import RegisterPage from "../../pages/Register";
 import renderer from "react-test-renderer";
-import { mount } from 'enzyme';
+import { shallow } from "enzyme";
 
-test("Checks if the component is correctly rendered", () => {
-  const component = renderer.create(<RegisterPage />).toJSON();
-  expect(component).toMatchSnapshot();
-});
+describe('<RegisterPage />', () => {
+  let component;
 
-test('Calls handleSubmit function when form is submitted', () => {
-  const onSubmitFn = jest.fn();
-  const wrapper = mount(<RegisterPage />);
-  const registerFormWrapper = wrapper.find('form');
-  registerFormWrapper.simulate('submit');
-  expect(onSubmitFn).toHaveBeenCalledTimes(1);
+  beforeEach(() => {
+    component = shallow(<RegisterPage />);
+  })
+
+  test("Catches DOM unexpected changes", () => {
+    const component = renderer.create(<RegisterPage />).toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
+  test('It should mount', () => {
+    expect(component.length).toBe(1);
+  })
 });

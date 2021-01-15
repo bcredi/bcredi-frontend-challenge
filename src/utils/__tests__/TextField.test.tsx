@@ -1,49 +1,13 @@
 import React from "react";
 import TextField from "../../components/TextField";
-import RegisterForm from "../../components/RegisterForm";
-import { mount } from "enzyme";
 import renderer from "react-test-renderer";
 import ReactDOM from "react-dom";
-import TestUtils from "react-dom/test-utils";
-import { User, InputError } from "../../pages/Register/types";
 
-// Email Input
-test("Renders email input", () => {
-  const wrapper = mount(
-    <TextField
-      name="email"
-      placeholder="teste@teste.com"
-      error={false}
-      value={""}
-      handleChange={() => {}}
-      validateValueFormat={() => {}}
-      setEmpty={() => {}}
-    />
-  );
-  const label = wrapper.find("label");
-  expect(label).toHaveLength(1);
-  expect(label.text()).toEqual("E-mail");
-  const input = wrapper.find("input");
-  expect(input).toHaveLength(1);
-  expect(input.prop("type")).toEqual("text");
-  expect(input.prop("name")).toEqual("email");
-  expect(input.prop("placeholder")).toEqual("teste@teste.com");
-  expect(input.prop("maxlength")).toEqual(60);
-});
-
-test("Email input reads and Sets input value", () => {
-  const wrapper = document.createElement("div");
-  ReactDOM.render(
-    <RegisterForm
-      formTitle="Test"
-      formDescription="Test description"
-      handleSubmit={() => {}}
-      data={{} as User}
-      formErrors={{} as InputError}
-      setData={() => {}}
-      setFormErrors={() => {}}
-      readCheck={false}
-    >
+describe("<TextField />", () => {
+  // Email Input
+  test("Renders email input", () => {
+    const wrapper = document.createElement("div");
+    ReactDOM.render(
       <TextField
         name="email"
         placeholder="teste@teste.com"
@@ -52,89 +16,117 @@ test("Email input reads and Sets input value", () => {
         handleChange={() => {}}
         validateValueFormat={() => {}}
         setEmpty={() => {}}
-      />
-    </RegisterForm>,
-    wrapper
-  );
-  const input = wrapper.querySelector("input");
-  TestUtils.Simulate.change(input!, {
-    target: { value: "ozielalves7@gmail.com" },
-  } as any);
-  expect(input!.value).toEqual("ozielalves7@gmail.com");
-});
+      />,
+      wrapper
+    );
 
-// CPF Input
-test("Renders cpf input", () => {
-  const wrapper = mount(
-    <TextField
-      name="cpf"
-      placeholder="000.000.000-00"
-      maxLength={14}
-      error={false}
-      value={""}
-      handleChange={() => {}}
-      validateValueFormat={() => {}}
-      setEmpty={() => {}}
-    />
-  );
-  const label = wrapper.find("label");
-  expect(label).toHaveLength(1);
-  expect(label.text()).toEqual("CPF");
-  const input = wrapper.find("input");
-  expect(input).toHaveLength(1);
-  expect(input.prop("type")).toEqual("text");
-  expect(input.prop("name")).toEqual("cpf");
-  expect(input.prop("placeholder")).toEqual("000.000.000-00");
-  expect(input.prop("maxlength")).toEqual(14);
-});
+    const label = wrapper.querySelector("label");
+    expect(label?.firstChild?.textContent).toEqual("E-mail");
 
-test("CPF input reads and Sets input value", () => {
-  const wrapper = document.createElement("div");
-  ReactDOM.render(
-    <RegisterForm
-      formTitle="Test"
-      formDescription="Test description"
-      handleSubmit={() => {}}
-      data={{} as User}
-      formErrors={{} as InputError}
-      setData={() => {}}
-      setFormErrors={() => {}}
-      readCheck={false}
-    >
+    const input = wrapper.querySelector(".form-input");
+    expect(input?.getAttribute("type")).toEqual("text");
+    expect(input?.getAttribute("name")).toEqual("email");
+    expect(input?.getAttribute("placeholder")).toEqual("teste@teste.com");
+    expect(input?.getAttribute("maxlength")).toEqual("60");
+  });
+
+  // CPF Input
+  test("Renders cpf input", () => {
+    const wrapper = document.createElement("div");
+    ReactDOM.render(
       <TextField
         name="cpf"
         placeholder="000.000.000-00"
+        error={false}
+        value={""}
         maxLength={14}
-        error={false}
-        value={""}
         handleChange={() => {}}
         validateValueFormat={() => {}}
         setEmpty={() => {}}
-      />
-    </RegisterForm>,
-    wrapper
-  );
-  const input = wrapper.querySelector("input");
-  TestUtils.Simulate.change(input!, {
-    target: { value: "12345678910" },
-  } as any);
-  expect(input!.value).toEqual("123.456.789-10");
-});
+      />,
+      wrapper
+    );
 
-test("Catches DOM unexpected changes", () => {
-  const component = renderer
-    .create(
+    const label = wrapper.querySelector("label");
+    expect(label?.firstChild?.textContent).toEqual("CPF");
+
+    const input = wrapper.querySelector(".form-input");
+    expect(input?.getAttribute("type")).toEqual("text");
+    expect(input?.getAttribute("name")).toEqual("cpf");
+    expect(input?.getAttribute("placeholder")).toEqual("000.000.000-00");
+    expect(input?.getAttribute("maxlength")).toEqual("14");
+  });
+
+  // BirthDate Input
+  test("Renders birth date input", () => {
+    const wrapper = document.createElement("div");
+    ReactDOM.render(
       <TextField
-        name="email"
-        placeholder="teste@teste.com"
+        name="birthDate"
+        placeholder="DD/MM/AA"
         error={false}
         value={""}
+        maxLength={10}
         handleChange={() => {}}
         validateValueFormat={() => {}}
         setEmpty={() => {}}
-      />
-    )
-    .toJSON();
+      />,
+      wrapper
+    );
 
-  expect(component).toMatchSnapshot();
+    const label = wrapper.querySelector("label");
+    expect(label?.firstChild?.textContent).toEqual("Data de nascimento");
+
+    const input = wrapper.querySelector(".form-input");
+    expect(input?.getAttribute("type")).toEqual("text");
+    expect(input?.getAttribute("name")).toEqual("birthDate");
+    expect(input?.getAttribute("placeholder")).toEqual("DD/MM/AA");
+    expect(input?.getAttribute("maxlength")).toEqual("10");
+  });
+
+  // Password Input
+  test("Renders password input", () => {
+    const wrapper = document.createElement("div");
+    ReactDOM.render(
+      <TextField
+        name="password"
+        placeholder="Cadastre uma senha"
+        error={false}
+        value={""}
+        minLength={8}
+        handleChange={() => {}}
+        validateValueFormat={() => {}}
+        setEmpty={() => {}}
+      />,
+      wrapper
+    );
+
+    const label = wrapper.querySelector("label");
+    expect(label?.firstChild?.textContent).toEqual("Senha");
+
+    const input = wrapper.querySelector(".form-input");
+    expect(input?.getAttribute("type")).toEqual("password");
+    expect(input?.getAttribute("name")).toEqual("password");
+    expect(input?.getAttribute("placeholder")).toEqual("Cadastre uma senha");
+    expect(input?.getAttribute("minlength")).toEqual("8");
+    expect(input?.getAttribute("maxlength")).toEqual("60");
+  });
+
+  test("Catches DOM unexpected changes", () => {
+    const component = renderer
+      .create(
+        <TextField
+          name="email"
+          placeholder="teste@teste.com"
+          error={false}
+          value={""}
+          handleChange={() => {}}
+          validateValueFormat={() => {}}
+          setEmpty={() => {}}
+        />
+      )
+      .toJSON();
+
+    expect(component).toMatchSnapshot();
+  });
 });
