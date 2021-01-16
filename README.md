@@ -15,7 +15,7 @@ The project was developed using [React JS](https://pt-br.reactjs.org/) and deplo
 
 <br>
 
-### Getting started
+## Getting started
 
 To start developing the project:
 
@@ -38,7 +38,7 @@ $ yarn start
 
 Runs the application on localhost: 3000.
 
-## Setting up Development
+### Setting up Development
 
 Installing the necessary dependencies:
 
@@ -73,24 +73,6 @@ If the development environment does not open automatically in your default brows
 http://localhost:3000
 ```
 
-## Developing
-
-### Built With
-
-- React (16.8.0)
-- Styled Components (5.2.1)
-- Typescript (4.0.3)
-
-### Tested With
-
-- TS-Jest (26.4.1)
-- Enzyme (3.11.0)
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-
 ### Deploying
 
 After completing the development process, it is possible to deploy the application using any hosting service available. This project was deployed using Firebase.
@@ -113,6 +95,24 @@ $ firebase deploy --only hosting -m "Deploying the most stable version"
 For more information see documentation
 - [Firebase CLI](https://firebase.google.com/docs/cli?hl=pt-br#windows-npm)
 - [Firebase Host](https://firebase.google.com/docs/hosting/quickstart)
+
+## Development
+
+### Built With
+
+- React (16.8.0)
+- Styled Components (5.2.1)
+- Typescript (4.0.3)
+
+### Tested With
+
+- TS-Jest (26.4.1)
+- Enzyme (3.11.0)
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
 
 ### Folder Structure
 
