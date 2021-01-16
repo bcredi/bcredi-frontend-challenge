@@ -11,7 +11,8 @@ The page allows the user to enter an email, CPF, date of birth and password to s
 After submittion, a message confirms the registration and the data is displayed on the console.
 
 The project was developed using [React JS](https://pt-br.reactjs.org/) and deployed using [Firebase](https://firebase.google.com/). Besides React and Firebase, other technologies were employed, such as: [TypeScript](https://www.typescriptlang.org/), [Styled Components](https://styled-components.com/), [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/projects/enzyme/).
-## [Bcredi Register - Demo](https://bcredi-register.web.app)
+
+Link to demo: **[Bcredi Register](https://bcredi-register.web.app)**
 
 <br>
 
