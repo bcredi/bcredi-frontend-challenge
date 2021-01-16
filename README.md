@@ -15,7 +15,30 @@ The project was developed using [React JS](https://pt-br.reactjs.org/) and deplo
 
 <br>
 
-## Getting started
+### Getting started
+
+To start developing the project:
+
+```bash
+# Clone the repository
+$ git clone git@github.com:ozielalves/bcredi-frontend-challenge.git
+
+# Go to repository root
+$ cd bcredi-frontend-challenge/
+
+# Switch to the branch the project was developed
+$ git checkout Oziel
+
+# Install dependencies
+$ yarn install
+
+# Starts a development environment
+$ yarn start
+```
+
+Runs the application on localhost: 3000.
+
+## Setting up Development
 
 Installing the necessary dependencies:
 
@@ -67,29 +90,6 @@ http://localhost:3000
 
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
-
-### Setting up Development
-
-To start developing the project:
-
-```bash
-# Clone the repository
-$ git clone git@github.com:ozielalves/bcredi-frontend-challenge.git
-
-# Go to repository root
-$ cd bcredi-frontend-challenge/
-
-# Switch to the branch the project was developed
-$ git checkout Oziel
-
-# Install dependencies
-$ yarn install
-
-# Starts a development environment
-$ yarn start
-```
-
-Runs the application on localhost: 3000.
 
 ### Deploying
 
